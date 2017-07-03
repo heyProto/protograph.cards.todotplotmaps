@@ -24,6 +24,8 @@ ProtoGraph.Card.toMaps.prototype.renderLaptop = function () {
       height= {this.options.height}
       width= {this.options.width}
       mode={this.mode}
+      colorCategory={this.options.colorCategory}
+      filterBy={this.options.filterBy}
       ref={(e) => {
         this.containerInstance = this.containerInstance || e;
       }}/>,
