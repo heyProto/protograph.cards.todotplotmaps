@@ -42,7 +42,6 @@ export default class MapsCard extends React.Component {
   }
 
   generateFilters() {
-    console.log("inside generateFilters ------")
     let groupData = _.groupBy(this.state.dataJSON, function (d){
       return d['SDG'];
     })
@@ -65,37 +64,19 @@ export default class MapsCard extends React.Component {
         path = geoPath()
           .projection(projection);
 
-      // const circles = this.state.dataJSON.map((point, i) => {
-      //   if (this.props.colorCategory) {
-      //     color = this.setColor(point)
-      //   } else {
-      //     color = '#589fe0'
-      //   }
-      //   return(
-      //     <circle 
-      //       key={i} 
-      //       cx={projection([point.Lng, point.Lat])[0]} 
-      //       cy={projection([point.Lng, point.Lat])[1]} 
-      //       r={3} 
-      //       fill={color}
-      //       onMouseOver={(e) => this.handleMouseOver(e, point)}
-      //       onMouseOut={(e) => this.handleMouseOut(e, point)}>
-      //     </circle>
-      //   )
-      // });
-
       let styles = {
         width: '100%',
         height: 'auto'
       }
+      console.log(this.props, "this.props", this.state)
 
       return(
         <div id="protograph_parent" style={styles}>
           <h1 className='protograph_map_title'>Cow related violence by state</h1>
-          {this.props.filterBy ? (this.state.groupedData = this.generateFilters(), <FilterTab data={this.state.groupedData}/>) : ''}
+          {this.props.filterBy ? (this.state.groupedData = this.generateFilters(), <FilterTab data={this.state.groupedData} projection={projection} colorCat={this.props.colorCategory}/>) : ''}
           <svg id='map_svg' width={this.props.width} height={this.props.height - 51}>
             <path className='country' d={path(country)}></path>
-            <PlotCircles dataJSON={this.state.dataJSON} projection={projection} colorCat={this.props.colorCategory}/>
+            <PlotCircles dataJSON={this.state.groupedData['SDG1']} projection={projection} colorCat={this.props.colorCategory}/>
           </svg>
         </div>
       )

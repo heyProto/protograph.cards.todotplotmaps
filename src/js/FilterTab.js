@@ -1,13 +1,36 @@
 import React from 'react';
+import PlotCircles from '../js/PlotCircles';
 
 class FilterTab extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      clicked: false
+    }
+    // this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(data) {
+    console.log("handleTabClick")
+    this.setState({
+      clicked: true,
+      filteredData: data
+    })
+  }
+
   render() {
-    console.log("hey", this.props.data)
-    let tabs = Object.keys(this.props.data).map(function (key, i){ 
+    let ObjValue = Object.values(this.props.data);
+    let tabs = Object.keys(this.props.data).map((key, i) => {
+      let data = ObjValue[i];
       return (
-        <div className="tab">
-          <input type="radio" name="css-tabs" id={`tab-${i}`} className="tab-switch"/>
-          <label for={`tab-${i}`} className="tab-label">{key}</label>
+        <div>
+          <div className="tab" onClick={(e) => this.handleClick(e, data)}>
+            <input type="radio" name="css-tabs" id={`tab-${i}`} className="tab-switch"/>
+            <label for={`tab-${i}`} className="tab-label">{key}</label>
+          </div>
+          <div>
+            {this.state.clicked ? <PlotCircles dataJSON={data} projection={this.props.projection} colorCat={this.props.colorCat}/> : ''}
+          </div>
         </div>
       )
     })
@@ -18,17 +41,3 @@ class FilterTab extends React.Component {
 }
 
 export default FilterTab;
-
-
- // <div className="tab">
- //            <input type="radio" name="css-tabs" id="tab-1" checked className="tab-switch"/>
- //            <label for="tab-1" className="tab-label">Tab One</label>
- //          </div>
- //          <div className="tab">
- //            <input type="radio" name="css-tabs" id="tab-2" className="tab-switch"/>
- //            <label for="tab-2" className="tab-label">Tab Two</label>
- //          </div>
- //          <div className="tab">
- //            <input type="radio" name="css-tabs" id="tab-3" className="tab-switch"/>
- //            <label for="tab-3" className="tab-label">Tab Three</label>
- //          </div>

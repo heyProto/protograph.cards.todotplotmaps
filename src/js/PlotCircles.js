@@ -1,5 +1,7 @@
 import React from 'react';
 
+console.log("PlotCircles")
+
 class PlotCircles extends React.Component { 
   constructor(props) {
     super(props)
@@ -40,6 +42,7 @@ class PlotCircles extends React.Component {
 
   render() {
     let color;
+    console.log(this.props.dataJSON, "this.props.dataJSON")
     const circles = this.props.dataJSON.map((point, i) => {
       if (this.props.colorCat) {
         color = this.setColor(point)
@@ -58,10 +61,12 @@ class PlotCircles extends React.Component {
         </circle>
       )
     });
-    return(<g>{circles}</g>)
+    return(
+      <g>{circles}</g>
+    )
   }
 }
 
 export default PlotCircles;
 
- // <Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display}/>
+// <Tooltip cardData={this.props.tooltipData} mouseX={this.props.mouseX} mouseY={this.props.mouseY} isTooltipSeen={this.props.display}/>
