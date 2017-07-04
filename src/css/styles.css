@@ -15,11 +15,9 @@ body {
 
 .protograph_map_title{
   font-size: 20px;
-  color: #4d4d4d;
-  border-bottom: 1px solid lightgrey;
-  line-height: 30px;
+  color: #333;
   margin:0px;
-  padding: 10px;
+  padding: 25px;
   font-weight: 400;
 }
 
@@ -39,7 +37,7 @@ body {
   font-size: 14px;
   padding: 10px;
   position: absolute;
-  width: 300px;
+  width: 240px;
   line-height: 24px;
   z-index: 100;
 }
@@ -52,32 +50,34 @@ body {
 
 .t-company{
   text-transform: capitalize;
-  font-family: 'Merriweather', serif;
-  letter-spacing: 0.5px;
+  font-family: helvetica;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 
 .t-sector{
   font-size: 12px;
-  padding: 5px 0px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #777;
+  letter-spacing: 0.5px;
+  line-height: 14px;
 }
 
 .ratings{
-  padding: 5px 0px;
+  padding: 2px 0px;
   border-top: 1px dashed #ddd;
   font-size: 12px;
 }
 
 .ratings .label{
   display: inline-block;
-  width: 200px;
+  width: 140px;
 }
 
 .top-row{
   border: 0px !important;
-  font-weight: bold;
+  color: #777;
 }
 
 .value{
@@ -92,7 +92,9 @@ body {
   position: relative;
   background: white;
   height: 40px;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid #efefef;
+  /*padding-bottom: 1px;*/
+  padding-left: 25px;
 }
 
 .tabs::before,
@@ -114,11 +116,15 @@ body {
   height: 40px;
   padding: 0 1.618em;
   background: white;
-  border-right: 1px solid lightgrey;
+  border-right: 1px solid #efefef;
+  border-left: 1px solid #efefef;
+  border-top: 1px solid #efefef;
   color: black;
   cursor: pointer;
   top: 0;
   transition: all 0.25s;
+  margin-right: 10px;
+  font-size: 14px;
 }
 
 /*.tab-label:hover {
