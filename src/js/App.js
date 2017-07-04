@@ -25,18 +25,29 @@ class App extends React.Component {
       })); 
   }
   
-  generateFilters(data) {
+  generateFilters() {
     let groupData = this.groupBy(this.state.dataJSON, this.props.filterBy)
     this.state.groupedData = groupData 
+    console.log(groupData, "groupData")
     return groupData;
   }
 
-  handleClick(key, group) {
-    const currentState = this.state.active;
+  handleClick(e, key, group) {
     this.setState({
       filteredData: group[key],
-      active: !currentState
+      active: !this.state.active
     })
+    let elm = document.getElementsByClassName('tab-label active_tab'),
+      inactiveClass = "tab-label",
+      activeClass = "tab-label active_tab";
+    let i = 0;
+    while (i < elm.length) {
+      i++;
+      elm[0].className = inactiveClass;
+    }
+    let selectTab = document.getElementById(key),
+      selectLabel = selectTab.querySelector('label');
+    selectLabel.className = activeClass;
   }
 
   renderLaptop() {
@@ -45,11 +56,10 @@ class App extends React.Component {
     } else { 
       let group = this.generateFilters(),
         keys = Object.keys(group);
-      let tabs = keys.map((key, i) => { 
-        console.log(this.state.active, "this.state.active" )    
+      let tabs = keys.map((key, i) => {     
         return (
-          <div key={i} className={`tab ${this.state.active ? 'active_tab': ''}`} onClick={(e) => this.handleClick(key, group)}>
-            <input type="radio" name="css-tabs" id={`tab-${key}`} className="tab-switch"/>
+          <div key={key} id={key} className="tab" onClick={(e) => this.handleClick(e, key, group)}>
+            <input type="radio" id={`tab-${key}`} className="tab-switch"/>
             <label htmlFor={`tab-${key}`} className="tab-label">{key}</label>
           </div>
         ) 

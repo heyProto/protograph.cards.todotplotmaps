@@ -10,7 +10,7 @@ body {
 }
 
 #map_svg{
-  padding:20px;
+
 }
 
 .protograph_map_title{
@@ -141,7 +141,6 @@ body {
 }
 
 .tab-switch:checked + .tab-label {
-  background: #fff;
   color: #2c3e50;
   border-bottom: 0;
   border-right: 1px solid lightgrey;
