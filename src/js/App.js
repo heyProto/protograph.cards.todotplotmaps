@@ -9,6 +9,7 @@ class App extends React.Component {
       dataJSON: {},
       filteredData: {},
       topoJSON: {},
+      active: false,
       groupedData: undefined  
     }
   }
@@ -31,8 +32,10 @@ class App extends React.Component {
   }
 
   handleClick(key, group) {
+    const currentState = this.state.active;
     this.setState({
-      filteredData: group[key]
+      filteredData: group[key],
+      active: !currentState
     })
   }
 
@@ -40,13 +43,14 @@ class App extends React.Component {
     if (Object.keys(this.state.dataJSON).length === 0 && this.state.dataJSON.constructor === Object) {
       return(<div>Loading</div>)
     } else { 
-      let group = this.generateFilters();
-      let keys = Object.keys(group);
-      let tabs = keys.map((key, i) => {
+      let group = this.generateFilters(),
+        keys = Object.keys(group);
+      let tabs = keys.map((key, i) => { 
+        console.log(this.state.active, "this.state.active" )    
         return (
-          <div className="tab" onClick={(e) => this.handleClick(key, group)}>
-            <input type="radio" name="css-tabs" id={`tab-${i}`} className="tab-switch"/>
-            <label for={`tab-${i}`} className="tab-label">{key}</label>
+          <div key={i} className={`tab ${this.state.active ? 'active_tab': ''}`} onClick={(e) => this.handleClick(key, group)}>
+            <input type="radio" name="css-tabs" id={`tab-${key}`} className="tab-switch"/>
+            <label htmlFor={`tab-${key}`} className="tab-label">{key}</label>
           </div>
         ) 
       })
@@ -54,7 +58,7 @@ class App extends React.Component {
       let styles = {
         width: '100%',
         height: 'auto'
-      } 
+      }
 
       return(
         <div id="protograph_parent" style={styles}>        

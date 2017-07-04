@@ -5,17 +5,32 @@ import PlotCircles from '../js/PlotCircles';
 
 class MapsCard extends React.Component {
   render(){
+    let offsetWidth = document.getElementById('protograph_parent').offsetWidth,
+      actualHeight = this.props.height - 92;
+
     let ch = this.props.topoJSON,
       country = topojson.feature(ch, ch.objects),
       center = geoCentroid(topojson.feature(ch, ch.objects)),
+      scale = 700,
       projection = geoMercator().center(center)
-        .scale(700)
-        .translate([this.props.width / 2, this.props.height / 2]),
+        .scale(scale)
+        .translate([offsetWidth / 2, actualHeight / 2]),
       path = geoPath()
         .projection(projection);
 
+    let bounds  = path.bounds(country),
+      hscale = scale*offsetWidth  / (bounds[1][0] - bounds[0][0]),
+      vscale = scale*actualHeight / (bounds[1][1] - bounds[0][1]);
+    scale = (hscale < vscale) ? hscale : vscale;
+    let offset = [offsetWidth - (bounds[0][0] + bounds[1][0])/2, actualHeight - (bounds[0][1] + bounds[1][1])/2];
+
+    projection = geoMercator().center(center)
+      .scale(scale)
+      .translate(offset);
+    path = path.projection(projection);
+
     return(
-      <svg id='map_svg' width={this.props.width} height={this.props.height - 51}>
+      <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${actualHeight}`} width={offsetWidth} height={actualHeight}>
         <path className='country' d={path(country)}></path>
         <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory}/>
       </svg>

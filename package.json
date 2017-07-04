@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "d3-geo": "^1.6.4",
+    "d3-voronoi": "^1.1.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "topojson-client": "^3.0.0"
@@ -29,7 +30,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --public --host 0.0.0.0"
   },
   "author": "",
   "license": "ISC"

@@ -1,19 +1,25 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './main.js',
+  entry: {
+    app: [ './main.js' ]
+  },
   output: {
-    path: './',
+    path: __dirname,
+    publicPath: '/',
     filename: './dist/0.0.1/card.min.js',
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     'process.env': {
-  //       NODE_ENV: JSON.stringify('production')
-  //     }
-  //   }),
-  //   new webpack.optimize.UglifyJsPlugin()
-  // ],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
+  devServer: {
+    disableHostCheck: true
+  },
   node: {
     net: 'empty',
     tls: 'empty',
