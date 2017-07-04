@@ -1,8 +1,6 @@
-// import Pie from './src/js/Pie.js';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Maps from './src/js/Map.js';
+import App from './src/js/App.js';
 
 window.ProtoGraph = window.ProtoGraph || {};
 window.ProtoGraph.Card = window.ProtoGraph.Card || {};
@@ -18,7 +16,7 @@ ProtoGraph.Card.toMaps.prototype.init = function (options) {
 ProtoGraph.Card.toMaps.prototype.renderLaptop = function () {
   this.mode = 'laptop';
   ReactDOM.render(
-    <Maps
+    <App
       dataURL={this.options.data_url}
       topoURL={this.options.topo_url}
       height= {this.options.height}

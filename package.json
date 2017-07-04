@@ -7,9 +7,7 @@
     "d3-geo": "^1.6.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "topojson-client": "^3.0.0",
-    "underscore": "^1.8.3",
-    "victory": "^0.21.1"
+    "topojson-client": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",

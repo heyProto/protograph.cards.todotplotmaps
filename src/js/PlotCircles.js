@@ -1,23 +1,22 @@
 import React from 'react';
-
-console.log("PlotCircles")
+import ReactDOM from 'react-dom';
+import Tooltip from '../js/Tooltip';
 
 class PlotCircles extends React.Component { 
   constructor(props) {
     super(props)
     this.state = {
-      tooltipData: {}
+      tooltipData: {},
+      display: 'block'
     }
-    this.handleMouseOver = this.handleMouseOver.bind(this);
-    this.handleMouseOut = this.handleMouseOut.bind(this);
   }
 
   handleMouseOver(e, card) {
     this.setState({
       tooltipData: card,
+      display: 'block',
       mouseX: e.pageX,
-      mouseY: e.pageY,
-      display: 'block'
+      mouseY: e.pageY
     })
   }
 
@@ -28,7 +27,7 @@ class PlotCircles extends React.Component {
   }
 
   setColor(card) {
-    switch(card[this.props.colorCat]){
+    switch(card[this.props.colorCategory]){
       case 'Poverty Reduction':
         return '#f44336';
       case 'Disaster Risk Reduction':
@@ -42,15 +41,14 @@ class PlotCircles extends React.Component {
 
   render() {
     let color;
-    console.log(this.props.dataJSON, "this.props.dataJSON")
     const circles = this.props.dataJSON.map((point, i) => {
-      if (this.props.colorCat) {
+      if (this.props.colorCategory) {
         color = this.setColor(point)
       } else {
         color = '#589fe0'
       }
       return(
-        <circle 
+        <circle
           key={i} 
           cx={this.props.projection([point.Lng, point.Lat])[0]} 
           cy={this.props.projection([point.Lng, point.Lat])[1]} 
@@ -61,6 +59,7 @@ class PlotCircles extends React.Component {
         </circle>
       )
     });
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display}/>, document.getElementById('renderTooltip'))
     return(
       <g>{circles}</g>
     )
