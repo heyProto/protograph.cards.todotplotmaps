@@ -9,7 +9,7 @@ class App extends React.Component {
       dataJSON: {},
       filteredData: {},
       topoJSON: {},
-      active: false,
+      clicked: false,
       groupedData: undefined  
     }
   }
@@ -19,7 +19,7 @@ class App extends React.Component {
       .then(axios.spread((card, topo) => {
         this.setState({
           dataJSON: card.data,
-          filteredData: card.data,
+          // filteredData: card.data,
           topoJSON: topo.data         
         });
       })); 
@@ -28,14 +28,13 @@ class App extends React.Component {
   generateFilters() {
     let groupData = this.groupBy(this.state.dataJSON, this.props.filterBy)
     this.state.groupedData = groupData 
-    console.log(groupData, "groupData")
     return groupData;
   }
 
   handleClick(e, key, group) {
     this.setState({
       filteredData: group[key],
-      active: !this.state.active
+      clicked: true
     })
     let elm = document.getElementsByClassName('tab-label active_tab'),
       inactiveClass = "tab-label",
@@ -56,11 +55,15 @@ class App extends React.Component {
     } else { 
       let group = this.generateFilters(),
         keys = Object.keys(group);
-      let tabs = keys.map((key, i) => {     
+      if (this.state.clicked === false) {
+        this.state.filteredData =  group[keys[0]];
+      }
+      let tabs = keys.map((key, i) => { 
+        let active = (i===0) ? ' active_tab' : ''; //onload show the first tab active  
         return (
           <div key={key} id={key} className="tab" onClick={(e) => this.handleClick(e, key, group)}>
             <input type="radio" id={`tab-${key}`} className="tab-switch"/>
-            <label htmlFor={`tab-${key}`} className="tab-label">{key}</label>
+            <label htmlFor={`tab-${key}`} className={`tab-label${active}`}>{key}</label>
           </div>
         ) 
       })

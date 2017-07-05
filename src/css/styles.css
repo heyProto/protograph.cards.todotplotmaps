@@ -4,13 +4,14 @@ body {
 }
 
 .country {
-  fill: #F3F3F3;
+  fill: #EDEDED;
   stroke: lightgrey;
   stroke-width: 0.2;
 }
 
 #map_svg{
-
+  padding-top:20px;
+  padding-bottom:20px;
 }
 
 .protograph_map_title{
@@ -115,15 +116,15 @@ body {
   line-height: 2.75em;
   height: 40px;
   padding: 0 1.618em;
-  background: white;
+  background: #fafafa;
   border-right: 1px solid #efefef;
   border-left: 1px solid #efefef;
   border-top: 1px solid #efefef;
-  color: black;
+  color: #4bc3f7 !important;
   cursor: pointer;
   top: 0;
   transition: all 0.25s;
-  margin-right: 10px;
+  margin-right: 5px;
   font-size: 14px;
 }
 
@@ -132,38 +133,24 @@ body {
   transition: all 0.25s;
 }*/
 
-.tab-content {
-  padding: 1.618rem;
-  background: #fff;
-  color: #2c3e50;
-  border-bottom: 0.25rem solid #bdc3c7;
-  height: 12rem;
-  position: absolute;
-  z-index: 1;
-  top: 2.75em;
-  left: 0;
-  opacity: 0;
-  transition: all 0.35s;
-}
-
 .tab-switch:checked + .tab-label {
-  color: #2c3e50;
+  color: #4d4d4d;
   border-bottom: 0;
-  border-right: 1px solid lightgrey;
   transition: all 0.35s;
   z-index: 2;
-  /*top: -0.0625rem;*/
 }
 
 /*.tab-switch:checked + .tab-label:hover { top: -0.0625rem; }
 */
-.tab-switch:checked + .tab-label + .tab-content {
+.tab-switch:checked + .tab-label{
   opacity: 1;
   transition: all 0.35s;
   z-index: 3;
 }
 
 .active_tab{
-  background: red;
+  background: white;
+  /*font-weight: bold;*/
+  color: #4d4d4d !important;
 }
  
