@@ -6,6 +6,7 @@
     "axios": "^0.16.2",
     "d3-geo": "^1.6.4",
     "d3-voronoi": "^1.1.2",
+    "express": "^4.15.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "topojson-client": "^3.0.0"
@@ -19,6 +20,7 @@
     "babel-preset-react": "^6.24.1",
     "browserify": "^11.2.0",
     "browserify-shim": "^3.8.10",
+    "compression-webpack-plugin": "^0.4.0",
     "css-loader": "^0.26.1",
     "json-loader": "^0.5.4",
     "node-sass": "^4.2.0",
