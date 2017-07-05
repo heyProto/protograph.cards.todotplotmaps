@@ -2,7 +2,7 @@ import React from 'react';
 import * as topojson from 'topojson-client';
 import {geoPath, geoCentroid, geoMercator} from 'd3-geo';
 import PlotCircles from '../js/PlotCircles';
-import Voronoi from '../js/Voronoi';
+// import Voronoi from '../js/Voronoi';
 
 class MapsCard extends React.Component {
   render(){
@@ -18,8 +18,6 @@ class MapsCard extends React.Component {
         .translate([offsetWidth / 2, actualHeight / 2]),
       path = geoPath()
         .projection(projection);
-
-    console.log(ch, ch.objects, country, "-----------")
 
     let bounds  = path.bounds(country),
       hscale = scale*offsetWidth  / (bounds[1][0] - bounds[0][0]),

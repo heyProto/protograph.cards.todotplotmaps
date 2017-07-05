@@ -16,6 +16,7 @@ class PlotCircles extends React.Component {
   }
 
   handleMouseOver(e, card) {
+    console.log("hoverrr")
     this.setState({
       tooltipData: card,
       display: 'visible',
@@ -57,7 +58,7 @@ class PlotCircles extends React.Component {
           key={i} 
           cx={this.props.projection([point.Lng, point.Lat])[0]} 
           cy={this.props.projection([point.Lng, point.Lat])[1]} 
-          r={3} 
+          r={3.5} 
           fill={color}
           onMouseOver={(e) => this.handleMouseOver(e, point)}
           onMouseOut={(e) => this.handleMouseOut(e, point)}>

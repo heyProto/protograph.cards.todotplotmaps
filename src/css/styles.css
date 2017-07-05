@@ -160,7 +160,13 @@ body {
     box-shadow: 0 0 0 0 lightgrey;
   }
   .protograph_map_title{
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left:15px;
+  }
+
+  .tabs{
+    padding-left: 15px;
   }
 
   .searchable-filter-div input{

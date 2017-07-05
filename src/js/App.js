@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Maps from '../js/Map.js';
-import Search from '../js/Search.js';
+// import Search from '../js/Search.js';
 
 class App extends React.Component {
   constructor(props) {
