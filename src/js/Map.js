@@ -5,7 +5,7 @@ import PlotCircles from '../js/PlotCircles';
 
 class MapsCard extends React.Component {
   render(){
-    let offsetWidth = document.getElementById('protograph_parent').offsetWidth,
+    let offsetWidth = document.getElementById('protograph_parent').offsetWidth - 20,
       actualHeight = this.props.height - 92;
 
     let ch = this.props.topoJSON,
@@ -32,7 +32,7 @@ class MapsCard extends React.Component {
     return(
       <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${actualHeight}`} width={offsetWidth} height={actualHeight}>
         <path className='country' d={path(country)}></path>
-        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} height={actualHeight}/>
+        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} height={actualHeight} mode={this.props.mode}/>
       </svg>
     )
   }

@@ -34,7 +34,6 @@ body {
 
 #protograph-tooltip {
   position: absolute;
-  /*display: none;*/
   background: rgb(255,255,255);
   color: black;
   box-shadow: 2px 2px 10px lightgrey;
@@ -89,7 +88,6 @@ body {
   display: inline-block !important;
   width: 50px;
   font-size: 12px;
-  /*float: right;*/
   text-align: right
 }
 
@@ -98,7 +96,6 @@ body {
   background: white;
   height: 40px;
   border-bottom: 1px solid #efefef;
-  /*padding-bottom: 1px;*/
   padding-left: 25px;
 }
 
@@ -132,11 +129,6 @@ body {
   font-size: 14px;
 }
 
-/*.tab-label:hover {
-  top: -0.25rem;
-  transition: all 0.25s;
-}*/
-
 .tab-switch:checked + .tab-label {
   color: #4d4d4d;
   border-bottom: 0;
@@ -144,8 +136,6 @@ body {
   z-index: 2;
 }
 
-/*.tab-switch:checked + .tab-label:hover { top: -0.0625rem; }
-*/
 .tab-switch:checked + .tab-label{
   opacity: 1;
   transition: all 0.35s;
@@ -156,5 +146,65 @@ body {
   background: white;
   /*font-weight: bold;*/
   color: #4d4d4d !important;
+}
+
+@media only screen and (max-width: 450px){
+  #map_svg {
+    padding: 10px;
+  }
+  #protograph_parent{
+    -moz-box-shadow: 0 0 0 0 lightgrey;
+    -webkit-box-shadow: 0 0 0 0 lightgrey;
+    box-shadow: 0 0 0 0 lightgrey;
+  }
+  .protograph_map_title{
+    padding: 10px;
+  }
+
+  .searchable-filter-div input{
+    width: 300px;
+    border: 0px;
+    font-size: 12px;
+    color: black;
+    background: rgba(0,0,0,0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+
+  .searchable-filter-div input:focus{
+    outline: none;
+  }
+
+  .searchable-filter-div input:active{
+    outline: none;
+  }
+
+  .skills-options{
+    height: 110px;
+    overflow-y: scroll;
+    color:black;
+  }
+
+  .skills-option{
+    padding: 7px 20px;
+    color: black;
+    background-color: lightgrey; 
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .skills-options .active{
+    background-color: rgba(255,255,255,0.3);
+    border-bottom: 1px dashed rgba(255,255,255,0.01);
+  }
+
+  #protograph-tooltip {
+    margin-top: 10px;
+    width:100%;
+  }
+
+  body{
+    margin: 0px;
+  }
 }
  

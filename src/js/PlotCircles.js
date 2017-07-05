@@ -12,10 +12,11 @@ class PlotCircles extends React.Component {
   }
 
   componentDidUpdate() {
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height}/>, document.getElementById('renderTooltip'))
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))
   }
 
   handleMouseOver(e, card) {
+    console.log("hover")
     this.setState({
       tooltipData: card,
       display: 'block',

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Maps from '../js/Map.js';
+import Search from '../js/Search.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log("hey")
     axios.all([axios.get(this.props.dataURL), axios.get(this.props.topoURL)])
       .then(axios.spread((card, topo) => {
         this.setState({
@@ -81,7 +81,7 @@ class App extends React.Component {
         <div id="protograph_parent" style={styles}>        
           <h1 className='protograph_map_title'>Cow related violence by state</h1>
           {this.props.filterBy !== undefined ? <div className="tabs"> {tabs} </div> : ''}
-          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} colorCategory={this.props.colorCategory} width={this.props.width} height={this.props.height}/> 
+          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} colorCategory={this.props.colorCategory} width={this.props.width} height={this.props.height} mode={this.props.mode}/>
         </div>
       )
     }   
@@ -124,3 +124,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+// {this.props.mode === 'mobile' ? <Search data={this.state.filteredData}/> : ''}
