@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: './dist/0.0.1/card.min.js',
+    filename: 'card.min.js',
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -34,7 +34,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query:
