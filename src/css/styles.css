@@ -44,6 +44,7 @@ body {
   width: 240px;
   line-height: 24px;
   z-index: 100;
+  pointer-events:none;
 }
 
 .t-ownership{

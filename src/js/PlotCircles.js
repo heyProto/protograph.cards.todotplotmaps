@@ -7,7 +7,7 @@ class PlotCircles extends React.Component {
     super(props)
     this.state = {
       tooltipData: {},
-      display: 'none'
+      display: 'hidden'
     }
   }
 
@@ -16,10 +16,9 @@ class PlotCircles extends React.Component {
   }
 
   handleMouseOver(e, card) {
-    console.log("hover")
     this.setState({
       tooltipData: card,
-      display: 'block',
+      display: 'visible',
       mouseX: e.pageX,
       mouseY: e.pageY
     })
@@ -27,7 +26,7 @@ class PlotCircles extends React.Component {
 
   handleMouseOut() {
     this.setState({
-      display: 'none'
+      display: 'hidden'
     })
   }
 

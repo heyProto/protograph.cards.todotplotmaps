@@ -37,7 +37,7 @@ class Tooltip extends React.Component {
       }
       let styles = {
         transition: 'all 0.35s',
-        display: this.isTooltipSeen,
+        visibility: this.props.isTooltipSeen,
         left: tooltip_left , 
         top: tooltip_top 
       } 
