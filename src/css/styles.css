@@ -4,9 +4,10 @@ body {
 }
 
 .country {
-  fill: #EDEDED;
+  fill: #FAFAFA;
   stroke: lightgrey;
   stroke-width: 0.2;
+  /*stroke-dasharray: 3;*/
 }
 
 #map_svg{
@@ -206,6 +207,10 @@ body {
 
   body{
     margin: 0px;
+  }
+
+  .country{
+    stroke-width: 0.5;
   }
 }
  

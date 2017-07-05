@@ -33,13 +33,13 @@ class PlotCircles extends React.Component {
   setColor(card) {
     switch(card[this.props.colorCategory]){
       case 'Poverty Reduction':
-        return '#f44336';
+        return '#F7630C'; //orange
       case 'Disaster Risk Reduction':
-        return '#4CAF50';
+        return '#B146C2' //purple
       case 'Democratic Governance':
-        return '#2196F3';
+        return '#00AFF0'; //lue
       case 'Energy & Environment':
-        return '#FFC400'
+        return '#00CC6A'; //green
     }
   }
 
@@ -49,10 +49,11 @@ class PlotCircles extends React.Component {
       if (this.props.colorCategory) {
         color = this.setColor(point)
       } else {
-        color = '#589fe0'
+        color = '#00AFF0'
       }
       return(
         <circle id="map_circles"
+          className={`circle ${i}`}
           key={i} 
           cx={this.props.projection([point.Lng, point.Lat])[0]} 
           cy={this.props.projection([point.Lng, point.Lat])[1]} 
