@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: 'card.min.js',
+    filename: 'bundle.js',
   },
   plugins: [
     new webpack.DefinePlugin({
