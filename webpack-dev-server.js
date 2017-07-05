@@ -33,7 +33,7 @@ const host = splitServer[0];
 const port = splitServer[1];
 const env = "dev";
 
-const webpackConfig = require("./webpack.config");
+const webpackConfig = require("./webpack.config.js");
 const compiler = webpack(webpackConfig);
 const app = express();
 
@@ -48,15 +48,16 @@ app.get("/favicon.ico", function(req, res) {
   res.status(204).end();
 });
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
-
 app.get('*.js', function (req, res, next) {
   req.url = req.url + '.gz';
   res.set('Content-Encoding', 'gzip');
   next();
 });
+
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
 
 app.listen(port, host, function(err) {
   if (err) {

@@ -2,13 +2,17 @@ const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-  entry: {
-    app: [ './main.js' ]
-  },
+  // entry: {
+  //   app: [ './main.js' ]
+  // },
+  entry: './main.js',
+  // output: {
+  //   path: __dirname,
+  //   publicPath: '/',
+  //   filename: 'bundle.js',
+  // },
   output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -25,9 +29,9 @@ module.exports = {
       minRatio: 0.8
     })
   ],
-  devServer: {
-    disableHostCheck: true
-  },
+  // devServer: {
+  //   disableHostCheck: true
+  // },
   node: {
     net: 'empty',
     tls: 'empty',
