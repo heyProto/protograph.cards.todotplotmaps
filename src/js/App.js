@@ -15,11 +15,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log("hey")
     axios.all([axios.get(this.props.dataURL), axios.get(this.props.topoURL)])
       .then(axios.spread((card, topo) => {
         this.setState({
           dataJSON: card.data,
-          // filteredData: card.data,
           topoJSON: topo.data         
         });
       })); 
@@ -50,33 +50,37 @@ class App extends React.Component {
   }
 
   renderLaptop() {
+    let tabs;
     if (Object.keys(this.state.dataJSON).length === 0 && this.state.dataJSON.constructor === Object) {
       return(<div>Loading</div>)
     } else { 
-      let group = this.generateFilters(),
-        keys = Object.keys(group);
-      if (this.state.clicked === false) {
-        this.state.filteredData =  group[keys[0]];
+      if (this.props.filterBy !== undefined) {
+        let group = this.generateFilters(),
+          keys = Object.keys(group);
+        if (this.state.clicked === false) {
+          this.state.filteredData =  group[keys[0]];
+        }
+        tabs = keys.map((key, i) => { 
+          let active = (i===0) ? ' active_tab' : ''; //onload show the first tab active  
+          return (
+            <div key={key} id={key} className="tab" onClick={(e) => this.handleClick(e, key, group)}>
+              <input type="radio" id={`tab-${key}`} className="tab-switch"/>
+              <label htmlFor={`tab-${key}`} className={`tab-label${active}`}>{key}</label>
+            </div>
+          ) 
+        })
+      } else {
+        this.state.filteredData = this.state.dataJSON
       }
-      let tabs = keys.map((key, i) => { 
-        let active = (i===0) ? ' active_tab' : ''; //onload show the first tab active  
-        return (
-          <div key={key} id={key} className="tab" onClick={(e) => this.handleClick(e, key, group)}>
-            <input type="radio" id={`tab-${key}`} className="tab-switch"/>
-            <label htmlFor={`tab-${key}`} className={`tab-label${active}`}>{key}</label>
-          </div>
-        ) 
-      })
-
+     
       let styles = {
         width: '100%',
         height: 'auto'
       }
-
       return(
         <div id="protograph_parent" style={styles}>        
           <h1 className='protograph_map_title'>Cow related violence by state</h1>
-          <div className="tabs"> {tabs} </div>
+          {this.props.filterBy !== undefined ? <div className="tabs"> {tabs} </div> : ''}
           <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} colorCategory={this.props.colorCategory} width={this.props.width} height={this.props.height}/> 
         </div>
       )
