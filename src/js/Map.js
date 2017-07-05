@@ -32,7 +32,7 @@ class MapsCard extends React.Component {
     return(
       <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${actualHeight}`} width={offsetWidth} height={actualHeight}>
         <path className='country' d={path(country)}></path>
-        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory}/>
+        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} height={actualHeight}/>
       </svg>
     )
   }

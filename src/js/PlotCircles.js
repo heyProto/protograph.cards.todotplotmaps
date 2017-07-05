@@ -7,12 +7,12 @@ class PlotCircles extends React.Component {
     super(props)
     this.state = {
       tooltipData: {},
-      display: 'block'
+      display: 'none'
     }
   }
 
   componentDidUpdate() {
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display}/>, document.getElementById('renderTooltip'))
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height}/>, document.getElementById('renderTooltip'))
   }
 
   handleMouseOver(e, card) {
@@ -52,7 +52,7 @@ class PlotCircles extends React.Component {
         color = '#589fe0'
       }
       return(
-        <circle
+        <circle id="map_circles"
           key={i} 
           cx={this.props.projection([point.Lng, point.Lat])[0]} 
           cy={this.props.projection([point.Lng, point.Lat])[1]} 

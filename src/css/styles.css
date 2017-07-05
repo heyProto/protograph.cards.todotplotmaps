@@ -14,6 +14,10 @@ body {
   padding-bottom:20px;
 }
 
+#map_circles{
+  cursor: pointer;
+}
+
 .protograph_map_title{
   font-size: 20px;
   color: #333;
