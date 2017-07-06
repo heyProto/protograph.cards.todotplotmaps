@@ -17,7 +17,7 @@ class Voronoi extends React.Component {
   }
 
   handleMouseOver(e, card) {
-    console.log("hoverrr", card)
+    // console.log("hoverrr", card)
     this.setState({
       tooltipData: card,
       display: 'visible',
@@ -33,13 +33,6 @@ class Voronoi extends React.Component {
   }
 
   render() {
-    // const points = this.props.data.map((point, i) => {
-    //   return {
-    //     x: this.props.projection([point.Lng, point.Lat])[0],
-    //     y: this.props.projection([point.Lng, point.Lat])[1]
-    //   }
-    // })
-    // console.log(points, "points")
     let projection = this.props.projection
     let voronoi = d3Voronoi()
       .x(function (d){
