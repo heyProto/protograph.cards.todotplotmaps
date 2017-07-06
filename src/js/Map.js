@@ -56,8 +56,8 @@ class MapsCard extends React.Component {
         <g id="regions-grp" className="regions">{regions}</g>
         <path className='geo borders' d={path(country)}></path>
         <g className="outlines" style={styles}>{outlines}</g>
-        <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight} mode={this.props.mode} />
         <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} height={actualHeight} width={offsetWidth} />
+        <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight} mode={this.props.mode} />
       </svg>
     )
   }

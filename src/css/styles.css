@@ -27,8 +27,8 @@ body {
 
 .voronoiWrapper{
   fill: none;
-  stroke: red;
-  stroke-width: 0.5px
+  /*stroke: red;
+  stroke-*/width: 0.5px
 }
 
 

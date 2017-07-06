@@ -16,8 +16,12 @@ class Voronoi extends React.Component {
     ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))
   }
 
-  handleMouseOver(e, card) {
-    // console.log("hoverrr", card)
+  handleMouseOver(e, card, voronoi) {
+    // console.log(voronoi, "voronoi")
+    // const radius = this.props.width/10;
+    // const site = voronoi.find(e.pageX, e.pageY, radius)
+    // let c_data = site && site.data;
+    // console.log(c_data, "c_data")
     this.setState({
       tooltipData: card,
       display: 'visible',
@@ -42,7 +46,8 @@ class Voronoi extends React.Component {
       .y(function (d){
         return projection([d.Lng, d.Lat])[1]
       })
-      .extent([[0, 0], [this.props.width, this.props.height]])
+      .size([this.props.width, this.props.height])(this.props.data);
+      // .extent([[0, 0], [this.props.width, this.props.height]])
     
     // console.log("voronoi", voronoi)
     let polygons = voronoi.polygons(this.props.data)
@@ -59,18 +64,17 @@ class Voronoi extends React.Component {
     }
    
     let voronoiPaths = cleanVoronoiCells.map((d, i) => {
-      // console.log(d, "d")
       return(
         <path style={styles}
           d={`M ${d.join("L")} Z`}
           className={`voronoi ${i}`}
-          onMouseOver={(e) => this.handleMouseOver(e, d.data)}
-          onMouseOut={(e) => this.handleMouseOut(e, d.data)}
-          onTouchStart={(e) => this.handleMouseOver(e, d.data)}
-          >
+          onMouseMove={(e) => this.handleMouseOver(e, d.data, voronoi)}
+          onMouseLeave={(e) => this.handleMouseOut(e, d.data, voronoi)}
+          onTouchStart={(e) => this.handleMouseOver(e, d.data. voronoi)}>
         </path>
       )
-    })   
+    }) 
+
     return(
       <g className="voronoiWrapper">{voronoiPaths}</g>
     )
@@ -88,3 +92,7 @@ Array.prototype.clean = function(deleteValue) {
 };
 
 export default Voronoi;
+
+ // <defs className="clipWrapper">{clipWrapper}</defs>
+ //      <g className="circleClipWrapper">{circleClipWrapper}</g>
+ //      <g className="circleWrapper">{circleWrapper}</g>
