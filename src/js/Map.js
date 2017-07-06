@@ -7,8 +7,11 @@ import Voronoi from '../js/Voronoi';
 class MapsCard extends React.Component {
   render(){
     let padding = this.props.mode === 'mobile' ? 20 : 0,
+      titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 0,
+      filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 0,
+      sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0, 
       offsetWidth = document.getElementById('protograph_parent').offsetWidth - padding,
-      actualHeight = this.props.height - 92;
+      actualHeight = this.props.height - (titleHeight + filtersHeight);
 
     let ch = this.props.topoJSON,
       country = topojson.feature(ch, ch.objects),

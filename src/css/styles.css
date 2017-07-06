@@ -1,6 +1,6 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  position: relative;
+  
 }
 
 .borders {
@@ -28,7 +28,7 @@ body {
 .voronoiWrapper{
   fill: none;
   /*stroke: red;
-  stroke-*/width: 0.5px
+  stroke-width: 0.5px*/
 }
 
 
@@ -41,7 +41,7 @@ body {
   cursor: pointer;
 }
 
-.protograph_map_title{
+#protograph_map_title{
   font-size: 20px;
   color: #333;
   margin:0px;
@@ -53,6 +53,7 @@ body {
   -moz-box-shadow: 0 0 5px 5px lightgrey;
   -webkit-box-shadow: 0 0 5px 5px lightgrey;
   box-shadow: 0 0 5px 5px lightgrey;
+  position: relative;
 }
 
 #protograph-tooltip {
@@ -68,6 +69,24 @@ body {
   line-height: 24px;
   z-index: 100;
   pointer-events:none;
+}
+
+.protograph-source {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #7a7a7a;
+  border-top: 1px solid #efefef;
+}
+
+.protograph-source-header, .protograph-source-summary {
+  display: inline;
+}
+
+.protograph-credits {
+  display: inline;
+  float: right;
+  font-size: 10px;
 }
 
 .t-ownership{
@@ -181,7 +200,7 @@ body {
     -webkit-box-shadow: 0 0 0 0 lightgrey;
     box-shadow: 0 0 0 0 lightgrey;
   }
-  .protograph_map_title{
+  #protograph_map_title{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left:15px;

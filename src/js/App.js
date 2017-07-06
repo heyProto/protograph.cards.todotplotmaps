@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Maps from '../js/Map.js';
-// import Search from '../js/Search.js';
+import DataSource from '../js/DataSource.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -79,9 +79,10 @@ class App extends React.Component {
       }
       return(
         <div id="protograph_parent" style={styles}>        
-          <h1 className='protograph_map_title'>Cow related violence by state</h1>
-          {this.props.filterBy !== undefined ? <div className="tabs"> {tabs} </div> : ''}
+          <h1 id='protograph_map_title'>{this.props.chartTitle}</h1>
+          {this.props.filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
           <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} colorCategory={this.props.colorCategory} width={this.props.width} height={this.props.height} mode={this.props.mode}/>
+          <DataSource id="protograph_source_div"/>
         </div>
       )
     }   

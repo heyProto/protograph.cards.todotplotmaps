@@ -95,7 +95,3 @@ Array.prototype.clean = function(deleteValue) {
 };
 
 export default Voronoi;
-
- // <defs className="clipWrapper">{clipWrapper}</defs>
- //      <g className="circleClipWrapper">{circleClipWrapper}</g>
- //      <g className="circleWrapper">{circleWrapper}</g>

@@ -5,14 +5,14 @@ class Tooltip extends React.Component {
     if (this.props.cardData === null){
       return(<div></div>)
     } else {
-      let tooltip_left, tooltip_top;
+      let tooltip_left, tooltip_top, titleHeight, filtersHeight, sourceHeight;
       if (this.props.mode === 'laptop'){
         if (document.getElementById("protograph-tooltip") === null) {
           tooltip_left = this.props.mouseX + 10;
           tooltip_top = this.props.mouseY + 10;
         } else {
           let tooltip_bbox = document.getElementById("protograph-tooltip").getBoundingClientRect()
-          let width = document.getElementById('protograph_parent').offsetWidth,
+          let width = document.getElementById('protograph_parent').offsetWidth, 
             height = this.props.height;
           // console.log(this.props.mouseX + tooltip_bbox.width, width, tooltip_bbox.width, this.props.mouseX, "----width---")
           if ((this.props.mouseX + tooltip_bbox.width + 20) >= width){
@@ -31,8 +31,11 @@ class Tooltip extends React.Component {
           // console.log(tooltip_left, tooltip_top, "tooltip positions")
         }
       } else {
+        titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 0,
+        filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 0,
+        sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0,
         tooltip_left = 0;
-        tooltip_top = this.props.height + 92
+        tooltip_top = this.props.height + titleHeight + filtersHeight + sourceHeight + 10;
       }
       let styles = {
         transition: 'all 0.35s',

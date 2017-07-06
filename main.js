@@ -24,6 +24,7 @@ ProtoGraph.Card.toMaps.prototype.renderLaptop = function () {
     <App
       dataURL={this.options.data_url}
       topoURL={this.options.topo_url}
+      chartTitle={this.options.chart_title}
       height= {this.options.height}
       width= {this.options.width}
       mode={this.mode}
