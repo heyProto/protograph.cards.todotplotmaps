@@ -17,9 +17,14 @@ class Voronoi extends React.Component {
   }
 
   handleMouseOver(e, card, voronoi) {
-    const radius = this.props.width/10,
-      site = voronoi.find(e.pageX, e.pageY, radius),
+    let nearestCardData;
+    if (this.props.mode === 'laptop'){
+      const radius = this.props.width/10,
+        site = voronoi.find(e.pageX, e.pageY, radius);
       nearestCardData = site && site.data;
+    } else {
+      nearestCardData = card;
+    }   
     this.setState({
       tooltipData: nearestCardData,
       display: 'visible',
@@ -68,7 +73,7 @@ class Voronoi extends React.Component {
           className={`voronoi ${i}`}
           onMouseMove={(e) => this.handleMouseOver(e, d.data, voronoi)}
           onMouseLeave={(e) => this.handleMouseOut(e, d.data, voronoi)}
-          onTouchStart={(e) => this.handleMouseOver(e, d.data. voronoi)}>
+          onTouchStart={(e) => this.handleMouseOver(e, d.data, voronoi)}>
         </path>
       )
     }) 
