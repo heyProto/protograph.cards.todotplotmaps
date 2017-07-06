@@ -2,13 +2,12 @@ import React from 'react';
 
 class Tooltip extends React.Component {
   render(){
-    if (Object.keys(this.props.cardData).length === 0 && this.props.cardData.constructor === Object){
+    if (this.props.cardData === null){
       return(<div></div>)
     } else {
       let tooltip_left, tooltip_top;
       if (this.props.mode === 'laptop'){
         if (document.getElementById("protograph-tooltip") === null) {
-          console.log("if tooltip")
           tooltip_left = this.props.mouseX + 10;
           tooltip_top = this.props.mouseY + 10;
         } else {
