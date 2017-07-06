@@ -1,35 +1,35 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Tooltip from '../js/Tooltip';
+// import ReactDOM from 'react-dom';
+// import Tooltip from '../js/Tooltip';
 
 class PlotCircles extends React.Component { 
-  constructor(props) {
-    super(props)
-    this.state = {
-      tooltipData: {},
-      display: 'hidden'
-    }
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     tooltipData: {},
+  //     display: 'hidden'
+  //   }
+  // }
 
-  componentDidUpdate() {
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))
-  }
+  // componentDidUpdate() {
+  //   ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))
+  // }
 
-  handleMouseOver(e, card) {
-    console.log("hoverrr")
-    this.setState({
-      tooltipData: card,
-      display: 'visible',
-      mouseX: e.pageX,
-      mouseY: e.pageY
-    })
-  }
+  // handleMouseOver(e, card) {
+  //   // console.log("hoverrr")
+  //   this.setState({
+  //     tooltipData: card,
+  //     display: 'visible',
+  //     mouseX: e.pageX,
+  //     mouseY: e.pageY
+  //   })
+  // }
 
-  handleMouseOut() {
-    this.setState({
-      display: 'hidden'
-    })
-  }
+  // handleMouseOut() {
+  //   this.setState({
+  //     display: 'hidden'
+  //   })
+  // }
 
   setColor(card) {
     switch(card[this.props.colorCategory]){
@@ -59,9 +59,7 @@ class PlotCircles extends React.Component {
           cx={this.props.projection([point.Lng, point.Lat])[0]} 
           cy={this.props.projection([point.Lng, point.Lat])[1]} 
           r={3.5} 
-          fill={color}
-          onMouseOver={(e) => this.handleMouseOver(e, point)}
-          onMouseOut={(e) => this.handleMouseOut(e, point)}>
+          fill={color}>
         </circle>
       )
     });

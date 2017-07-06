@@ -12,7 +12,7 @@ body {
   /*stroke-dasharray: 3;*/
 }
 
-.region {
+.geo-region {
   fill: #f3f3f3;
 }
 
@@ -24,6 +24,13 @@ body {
   stroke: none;
   fill-opacity: 0;
 }
+
+.voronoiWrapper{
+  fill: none;
+  stroke: red;
+  stroke-width: 0.5px
+}
+
 
 #map_svg{
   padding-top:20px;
@@ -230,8 +237,8 @@ body {
     margin: 0px;
   }
 
-  .country{
+  /*.borders{
     stroke-width: 0.5;
-  }
+  }*/
 }
  

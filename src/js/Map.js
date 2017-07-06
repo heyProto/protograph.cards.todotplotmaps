@@ -2,7 +2,7 @@ import React from 'react';
 import * as topojson from 'topojson-client';
 import {geoPath, geoCentroid, geoMercator} from 'd3-geo';
 import PlotCircles from '../js/PlotCircles';
-// import Voronoi from '../js/Voronoi';
+import Voronoi from '../js/Voronoi';
 
 class MapsCard extends React.Component {
   render(){
@@ -30,12 +30,12 @@ class MapsCard extends React.Component {
       .translate(offset);
     path = path.projection(projection);
 
-    console.log(country, "country")
+    // console.log(country, "country")
 
     let regions = country.features.map((d,i) => {
       return(
         <g className="region">
-          <path className="geo region" d={path(d)}></path>
+          <path className="geo-region" d={path(d)}></path>
         </g>
       )
     })
@@ -55,12 +55,11 @@ class MapsCard extends React.Component {
         <g className="regions">{regions}</g>
         <path className='geo borders' d={path(country)}></path>
         <g className="outlines" style={styles}>{outlines}</g>
-        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} height={actualHeight} width={offsetWidth} mode={this.props.mode}/>
+        <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight} mode={this.props.mode} />
+        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} height={actualHeight} width={offsetWidth} />
       </svg>
     )
   }
 }
 
 export default MapsCard
-
-// <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight}/>
