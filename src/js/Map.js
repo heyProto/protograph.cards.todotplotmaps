@@ -32,9 +32,29 @@ class MapsCard extends React.Component {
 
     console.log(country, "country")
 
+    let regions = country.features.map((d,i) => {
+      return(
+        <g className="region">
+          <path className="geo region" d={path(d)}></path>
+        </g>
+      )
+    })
+
+    let outlines = country.features.map((d,i) => {
+      return(
+        <path className="geo region-outline" d={path(d)}></path>
+      )
+    })
+
+    let styles ={
+      strokeWidth: 0.675
+    }
+
     return(
       <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${actualHeight}`} width={offsetWidth} height={actualHeight}>
-        <path className='country' d={path(country)}></path>
+        <g className="regions">{regions}</g>
+        <path className='geo borders' d={path(country)}></path>
+        <g className="outlines" style={styles}>{outlines}</g>
         <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} height={actualHeight} width={offsetWidth} mode={this.props.mode}/>
       </svg>
     )

@@ -3,11 +3,26 @@ body {
   position: relative;
 }
 
-.country {
-  fill: #FAFAFA;
-  stroke: lightgrey;
-  stroke-width: 0.2;
+.borders {
+  fill: none;
+  stroke: #888;
+  stroke-width: 0.25px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
   /*stroke-dasharray: 3;*/
+}
+
+.region {
+  fill: #f3f3f3;
+}
+
+/*.outlines{
+  stroke-width: 0.675px;
+}
+*/
+.region-outline{
+  stroke: none;
+  fill-opacity: 0;
 }
 
 #map_svg{

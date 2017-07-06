@@ -65,5 +65,5 @@ app.listen(port, host, function(err) {
     return;
   }
 
-  console.log(`Listening at ${port});
+  console.log(`Listening at ${port}`);
 });
