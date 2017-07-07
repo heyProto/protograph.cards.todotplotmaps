@@ -11,7 +11,7 @@ class MapsCard extends React.Component {
       filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 0,
       sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0, 
       offsetWidth = document.getElementById('protograph_parent').offsetWidth - padding,
-      actualHeight = this.props.height - (titleHeight + filtersHeight);
+      actualHeight = this.props.height
 
     let ch = this.props.topoJSON,
       country = topojson.feature(ch, ch.objects),

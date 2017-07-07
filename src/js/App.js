@@ -74,8 +74,7 @@ class App extends React.Component {
       }
      
       let styles = {
-        width: '100%',
-        height: 'auto'
+        width: '100%'
       }
       return(
         <div id="protograph_parent" style={styles}>        
