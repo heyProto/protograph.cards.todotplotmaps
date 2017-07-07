@@ -80,7 +80,7 @@ class App extends React.Component {
         <div id="protograph_parent" style={styles}>        
           <h1 id='protograph_map_title'>{this.props.chartTitle}</h1>
           {this.props.filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
-          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} colorCategory={this.props.colorCategory} width={this.props.width} height={this.props.height} mode={this.props.mode}/>
+          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} colorCategory={this.props.colorCategory} colorRange={this.props.colorRange} height={this.props.height} mode={this.props.mode}/>
           <DataSource id="protograph_source_div"/>
         </div>
       )

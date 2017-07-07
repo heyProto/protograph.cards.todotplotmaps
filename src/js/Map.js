@@ -7,9 +7,6 @@ import Voronoi from '../js/Voronoi';
 class MapsCard extends React.Component {
   render(){
     let padding = this.props.mode === 'mobile' ? 20 : 0,
-      titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 0,
-      filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 0,
-      sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0, 
       offsetWidth = document.getElementById('protograph_parent').offsetWidth - padding,
       actualHeight = this.props.height
 
@@ -59,7 +56,7 @@ class MapsCard extends React.Component {
         <g id="regions-grp" className="regions">{regions}</g>
         <path className='geo borders' d={path(country)}></path>
         <g className="outlines" style={styles}>{outlines}</g>
-        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} height={actualHeight} width={offsetWidth} />
+        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} colorRange={this.props.colorRange} height={actualHeight} width={offsetWidth} />
         <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight} mode={this.props.mode} />
       </svg>
     )

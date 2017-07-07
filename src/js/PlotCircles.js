@@ -1,57 +1,47 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import Tooltip from '../js/Tooltip';
+import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
 
 class PlotCircles extends React.Component { 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     tooltipData: {},
-  //     display: 'hidden'
-  //   }
-  // }
-
-  // componentDidUpdate() {
-  //   ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))
-  // }
-
-  // handleMouseOver(e, card) {
-  //   // console.log("hoverrr")
-  //   this.setState({
-  //     tooltipData: card,
-  //     display: 'visible',
-  //     mouseX: e.pageX,
-  //     mouseY: e.pageY
-  //   })
-  // }
-
-  // handleMouseOut() {
-  //   this.setState({
-  //     display: 'hidden'
-  //   })
-  // }
+  groupBy(data, column) {
+    let grouped_data = {};
+    switch(typeof column) {
+      case "string":
+        data.forEach(datum => {
+          if(grouped_data[datum[column]]) {
+            grouped_data[datum[column]].push(datum);
+          } else {
+            grouped_data[datum[column]] = [datum];
+          }
+        });
+        break;
+      case "function":
+        data.forEach(datum => {
+          let key = column(datum);
+          if(grouped_data[key]) {
+            grouped_data[key].push(datum);
+          } else {
+            grouped_data[key] = [datum];
+          }
+        });
+        break;
+    }
+    return grouped_data;
+  }
 
   setColor(card) {
-    switch(card[this.props.colorCategory]){
-      case 'Poverty Reduction':
-        return '#F7630C'; //orange
-      case 'Disaster Risk Reduction':
-        return '#B146C2' //purple
-      case 'Democratic Governance':
-        return '#00AFF0'; //lue
-      case 'Energy & Environment':
-        return '#00CC6A'; //green
-    }
+    let groupCat = this.groupBy(this.props.dataJSON, this.props.colorCategory),
+      colorDomain = Object.keys(groupCat),
+      colorScale = d3ScaleOrdinal()
+        .domain(colorDomain)
+        .range(this.props.colorRange);
+
+    return colorScale(card);
   }
 
   render() {
     let color;
+    this.setColor();
     const circles = this.props.dataJSON.map((point, i) => {
-      if (this.props.colorCategory) {
-        color = this.setColor(point)
-      } else {
-        color = '#00AFF0'
-      }
       return(
         <circle id="map_circles"
           className={`circle ${i}`}
@@ -59,7 +49,7 @@ class PlotCircles extends React.Component {
           cx={this.props.projection([point.Lng, point.Lat])[0]} 
           cy={this.props.projection([point.Lng, point.Lat])[1]} 
           r={3.5} 
-          fill={color}>
+          fill={this.setColor(point[this.props.colorCategory])}>
         </circle>
       )
     });
@@ -70,5 +60,3 @@ class PlotCircles extends React.Component {
 }
 
 export default PlotCircles;
-
-// <Tooltip cardData={this.props.tooltipData} mouseX={this.props.mouseX} mouseY={this.props.mouseY} isTooltipSeen={this.props.display}/>

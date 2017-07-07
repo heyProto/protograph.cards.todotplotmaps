@@ -67,6 +67,7 @@ class Voronoi extends React.Component {
     }
    
     let voronoiPaths = cleanVoronoiCells.map((d, i) => {
+      // console.log(i, "iiii")
       return(
         <path style={styles}
           d={`M ${d.join("L")} Z`}
