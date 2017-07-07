@@ -1,46 +1,17 @@
 import React from 'react';
 import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
+import Util from '../js/Utils';
 
 class PlotCircles extends React.Component { 
-  groupBy(data, column) {
-    let grouped_data = {};
-    switch(typeof column) {
-      case "string":
-        data.forEach(datum => {
-          if(grouped_data[datum[column]]) {
-            grouped_data[datum[column]].push(datum);
-          } else {
-            grouped_data[datum[column]] = [datum];
-          }
-        });
-        break;
-      case "function":
-        data.forEach(datum => {
-          let key = column(datum);
-          if(grouped_data[key]) {
-            grouped_data[key].push(datum);
-          } else {
-            grouped_data[key] = [datum];
-          }
-        });
-        break;
-    }
-    return grouped_data;
-  }
-
   setColor(card) {
-    let groupCat = this.groupBy(this.props.dataJSON, this.props.colorCategory),
-      colorDomain = Object.keys(groupCat),
-      colorScale = d3ScaleOrdinal()
-        .domain(colorDomain)
-        .range(this.props.colorRange);
-
-    return colorScale(card);
+    let groupCat = Util.groupBy(this.props.dataJSON, this.props.colorCategory),
+      colorDomain = Object.keys(groupCat);
+    let color = Util.setColorScale(card, colorDomain, this.props.colorRange)
+    
+    return color;
   }
 
   render() {
-    let color;
-    this.setColor();
     const circles = this.props.dataJSON.map((point, i) => {
       return(
         <circle id="map_circles"

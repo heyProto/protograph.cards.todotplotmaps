@@ -63,4 +63,4 @@ class MapsCard extends React.Component {
   }
 }
 
-export default MapsCard
+export default MapsCard;

@@ -1,6 +1,5 @@
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;  
 }
 
 .borders {
@@ -16,10 +15,6 @@ body {
   fill: #f3f3f3;
 }
 
-/*.outlines{
-  stroke-width: 0.675px;
-}
-*/
 .region-outline{
   stroke: none;
   fill-opacity: 0;
@@ -87,6 +82,39 @@ body {
   display: inline;
   float: right;
   font-size: 10px;
+}
+
+
+.protograph-legends{
+  right: 0px;
+  bottom: 26px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+}
+
+.protograph-legends-title{
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.stop{
+  white-space: nowrap;
+  margin-bottom: 2px;
+}
+
+.stop-swatch{
+  display: inline-block;
+  width: 15px;
+  vertical-align: middle;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.stop-label{
+  font-size: 13px;
+  display: inline-block;
 }
 
 .t-ownership{

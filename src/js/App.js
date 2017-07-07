@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import Maps from '../js/Map.js';
 import DataSource from '../js/DataSource.js';
+import Legends from '../js/Legends.js';
+import Util from '../js/Utils';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class App extends React.Component {
   }
   
   generateFilters() {
-    let groupData = this.groupBy(this.state.dataJSON, this.props.filterBy)
+    let groupData = Util.groupBy(this.state.dataJSON, this.props.filterBy)
     this.state.groupedData = groupData 
     return groupData;
   }
@@ -81,6 +83,7 @@ class App extends React.Component {
           <h1 id='protograph_map_title'>{this.props.chartTitle}</h1>
           {this.props.filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
           <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} colorCategory={this.props.colorCategory} colorRange={this.props.colorRange} height={this.props.height} mode={this.props.mode}/>
+          <Legends data={this.state.filteredData} colorCategory={this.props.colorCategory} colorRange={this.props.colorRange}/>
           <DataSource id="protograph_source_div"/>
         </div>
       )
@@ -94,32 +97,6 @@ class App extends React.Component {
       case 'mobile' :
         return this.renderLaptop();
     }
-  }
-
-  groupBy(data, column) {
-    let grouped_data = {};
-    switch(typeof column) {
-      case "string":
-        data.forEach(datum => {
-          if(grouped_data[datum[column]]) {
-            grouped_data[datum[column]].push(datum);
-          } else {
-            grouped_data[datum[column]] = [datum];
-          }
-        });
-        break;
-      case "function":
-        data.forEach(datum => {
-          let key = column(datum);
-          if(grouped_data[key]) {
-            grouped_data[key].push(datum);
-          } else {
-            grouped_data[key] = [datum];
-          }
-        });
-        break;
-    }
-    return grouped_data;
   }
 }
 
