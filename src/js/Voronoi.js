@@ -8,20 +8,22 @@ class Voronoi extends React.Component {
     super(props)
     this.state = {
       tooltipData: {},
-      display: 'hidden'
+      display: 'visible'
     }
   }
 
   componentDidUpdate() {
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height} mode={this.props.mode} name={this.state.name}/>, document.getElementById('renderTooltip'))
   }
 
-  handleMouseOver(e, card, voronoi) {
+  handleMouseOver(e, card, voronoi, name) {
     let nearestCardData;
     if (this.props.mode === 'laptop'){
-      const radius = this.props.width/10,
-        site = voronoi.find(e.pageX, e.pageY, radius);
-      nearestCardData = site && site.data;
+      // const radius = this.props.width/50,
+      //   site = voronoi.find(e.pageX, e.pageY, 10);
+      // nearestCardData = site && site.data;
+      // console.log(nearestCardData,site, e.pageX, e.pageY, "nearestCardData")
+      nearestCardData = card;
     } else {
       nearestCardData = card;
     }   
@@ -31,12 +33,32 @@ class Voronoi extends React.Component {
       mouseX: e.pageX,
       mouseY: e.pageY
     })
+    this.highlightCircle(name)
   }
 
   handleMouseOut() {
     this.setState({
       display: 'hidden'
     })
+    this.highlightCircle(name)
+  }
+
+  highlightCircle(name) {
+    let getCircles = document.getElementsByClassName(`circle-${name}`),
+      allCircles = document.getElementsByClassName('map-circles');
+
+    for (let j=0; j<allCircles.length; j++){
+      allCircles[j].style.stroke = 'none';
+    }
+
+    for (let i=0; i<getCircles.length; i++){
+      if (this.state.display === 'visible'){
+        getCircles[i].style.stroke = 'black';
+      } else {
+        // console.log("else", this.state.display)
+        getCircles[i].style.stroke = 'none';
+      }     
+    }
   }
 
   render() {
@@ -68,13 +90,14 @@ class Voronoi extends React.Component {
    
     let voronoiPaths = cleanVoronoiCells.map((d, i) => {
       // console.log(i, "iiii")
+      let name = `${d.data.State}-${d.data.District}`
       return(
         <path style={styles}
           d={`M ${d.join("L")} Z`}
-          className={`voronoi ${i}`}
-          onMouseMove={(e) => this.handleMouseOver(e, d.data, voronoi)}
-          onMouseLeave={(e) => this.handleMouseOut(e, d.data, voronoi)}
-          onTouchStart={(e) => this.handleMouseOver(e, d.data, voronoi)}>
+          className={`voronoi ${d.data.State}-${d.data.District}`}
+          onMouseMove={(e) => this.handleMouseOver(e, d.data, voronoi, name)}
+          onMouseLeave={(e) => this.handleMouseOut(e, d.data, voronoi, name)}
+          onTouchStart={(e) => this.handleMouseOver(e, d.data, voronoi, name)}>
         </path>
       )
     }) 

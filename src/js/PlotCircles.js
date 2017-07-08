@@ -1,5 +1,4 @@
 import React from 'react';
-import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
 import Util from '../js/Utils';
 
 class PlotCircles extends React.Component { 
@@ -15,7 +14,7 @@ class PlotCircles extends React.Component {
     const circles = this.props.dataJSON.map((point, i) => {
       return(
         <circle id="map_circles"
-          className={`circle ${i}`}
+          className={`map-circles circle-${point.State}-${point.District}`}
           key={i} 
           cx={this.props.projection([point.Lng, point.Lat])[0]} 
           cy={this.props.projection([point.Lng, point.Lat])[1]} 
