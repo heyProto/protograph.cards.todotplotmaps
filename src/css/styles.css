@@ -196,9 +196,7 @@ body {
 .tab-label {
   position: relative;
   display: block;
-  line-height: 2.75em;
-  /*height: 37px;*/
-  padding: 0 1.618em;
+  padding: 7px 15px;
   color: #999 !important;
   cursor: pointer;
   top: 0;
@@ -207,6 +205,7 @@ body {
   font-size: 12px;
   border-radius: 5px;
   background: #fafafa;
+  letter-spacing: 0.5px;
 }
 
 .tab-label:hover{
@@ -215,7 +214,6 @@ body {
 
 .tab-switch:checked + .tab-label {
   color: #4d4d4d;
-  border-bottom: 0;
   transition: all 0.35s;
   z-index: 2;
 }
