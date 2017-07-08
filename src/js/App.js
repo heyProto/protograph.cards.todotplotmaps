@@ -88,8 +88,8 @@ class App extends React.Component {
         <div id="protograph_parent" style={styles}>        
           <h1 id='protograph_map_title'>{chartTitle}</h1>
           {filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
-          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
           {colorCategory !== undefined ? <Legends data={this.state.filteredData} chartOptions={this.props.chartOptions} /> : ''}
+          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
         </div>
       )
     }   
