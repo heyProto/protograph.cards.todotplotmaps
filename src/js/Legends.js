@@ -5,6 +5,7 @@ class Legends extends React.Component {
   render() {
     let groupData = Utils.groupBy(this.props.data, this.props.colorCategory),
       data = Object.keys(groupData);
+      
     let legendStop = data.map((d,i) => {
       let styles = {
         backgroundColor : Utils.setColorScale(d, data, this.props.colorRange)

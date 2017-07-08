@@ -5,6 +5,7 @@ class Tooltip extends React.Component {
     if (this.props.cardData === null){
       return(<div></div>)
     } else {
+      // console.log(this.props.name, "this.props.classname")
       let tooltip_left, tooltip_top, titleHeight, filtersHeight, sourceHeight;
       if (this.props.mode === 'laptop'){
         if (document.getElementById("protograph-tooltip") === null) {

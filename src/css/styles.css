@@ -22,7 +22,7 @@ body {
 
 .voronoiWrapper{
   fill: none;
-  /*stroke: red;
+ /* stroke: red;
   stroke-width: 0.5px*/
 }
 
@@ -87,10 +87,11 @@ body {
 
 .protograph-legends{
   right: 0px;
-  bottom: 26px;
+  bottom: 30px;
   position: absolute;
   background: rgba(255, 255, 255, 0.9);
   padding: 10px;
+  z-index: -100;
 }
 
 .protograph-legends-title{
