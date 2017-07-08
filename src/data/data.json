@@ -30,26 +30,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Poverty Reduction",
-    "SDG": "SDG2",
-    "Message": "Increasing access to HIV/AIDS prevention and care for vulnerable people",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Poverty Reduction",
-    "SDG": "SDG1",
-    "Message": "Disha: Creating employment and entrepreneurship opportunities for women in India",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Telangana",
     "District": "Adilabad, Hyderabad, Khammam, Mahbubnagar, Ranga Reddy, Warangal",
     "Thematic Area": "Poverty Reduction",
@@ -87,16 +67,6 @@
     "Message": "Disha: Creating employment and entrepreneurship opportunities for women in India",
     "Lat": 12.9719,
     "Lng": 77.5937,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Disaster Risk Reduction",
-    "SDG": "SDG2",
-    "Message": "Enhancing institutional and community resilience to disasters and climate change",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -200,16 +170,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Democratic Governance",
-    "SDG": "SDG1",
-    "Message": "Increasing access to justice for marginalised people",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Odisha",
     "District": "Cuttack, Kalahandi, Puri",
     "Thematic Area": "Democratic Governance",
@@ -280,16 +240,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Democratic Governance",
-    "SDG": "SDG2",
-    "Message": "Supporting democratic electoral management",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Nagaland",
     "District": "Mokokchung, Mon, Wokha",
     "Thematic Area": "Energy & Environment",
@@ -327,16 +277,6 @@
     "Message": "Mainstreaming coastal and marine biodiversity conservation into production sectors in the East Godavari River estuarine ecosystem, Andhra Pradesh",
     "Lat": 16.2997,
     "Lng": 80.4573,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Poverty Reduction",
-    "SDG": "SDG1",
-    "Message": "Improving efficiency of vaccination systems in multiple states",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -460,46 +400,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Institutional strengthening for the phase out of ozone-depleting substance under the Montreal Protocol",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG1",
-    "Message": "HCFC phase-out management plan for compliance with 2013 and 2015 control targets",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Accelerated phase-out of CFC production in India",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Poverty Reduction",
-    "SDG": "SDG1",
-    "Message": "Strategic programmatic engagement at state level",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Rajasthan",
     "District": "Jaipur",
     "Thematic Area": "Poverty Reduction",
@@ -507,16 +407,6 @@
     "Message": "Strategic programmatic engagement at state level",
     "Lat": 25.3471,
     "Lng": 74.6408,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Poverty Reduction",
-    "SDG": "SDG1",
-    "Message": "Strengthening Nehru Yuva Kendra Sangathan and National Service Scheme",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -810,26 +700,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG1",
-    "Message": "Developing an effective multiple-use management framework for conserving biodiversity in the mountain landscape of the high ranges, Western Ghats, India",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Increasing access to renewable energy for microenterprises in rural India",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Madhya Pradesh",
     "District": "All Districts",
     "Thematic Area": "Poverty Reduction",
@@ -837,16 +707,6 @@
     "Message": "Building an institutional structure to provide marketing support and capacity building for Entrepreneurs under the Mukhyamantri Yuva Udyami Yojana",
     "Lat": 21.6856,
     "Lng": 75.0962,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Democratic Governance",
-    "SDG": "SDG2",
-    "Message": "Human Development: towards bridging inequalities",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -887,16 +747,6 @@
     "Message": "Human Development: towards bridging inequalities",
     "Lat": 21.1959,
     "Lng": 72.8302,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Democratic Governance",
-    "SDG": "SDG1",
-    "Message": "Human Development: towards bridging inequalities",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -960,16 +810,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Democratic Governance",
-    "SDG": "SDG2",
-    "Message": "Strengthening capacities for decentralized planning",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Madhya Pradesh",
     "District": "Mandla, Tikamgarh",
     "Thematic Area": "Democratic Governance",
@@ -997,16 +837,6 @@
     "Message": "Strengthening capacities for decentralized planning",
     "Lat": 21.1915,
     "Lng": 81.2762,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Democratic Governance",
-    "SDG": "SDG2",
-    "Message": "Strengthening human resource management of civil service",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -1260,16 +1090,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Fifth operational phase, Small Grants Programme",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Maharashtra",
     "District": "All Districts",
     "Thematic Area": "Energy & Environment",
@@ -1277,16 +1097,6 @@
     "Message": "Fifth operational phase, Small Grants Programme",
     "Lat": 19.8776,
     "Lng": 75.3423,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Strengthening natural resource management",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -1300,16 +1110,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Securing livelihoods in the Himalayas",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Mizoram",
     "District": "Aizawl, Lunglei",
     "Thematic Area": "Energy & Environment",
@@ -1317,36 +1117,6 @@
     "Message": "Joint UN initiative for ecosystem-based livelihood promotion in Mizoram",
     "Lat": 23.7289,
     "Lng": 92.7177,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Removal of barriers to biomass power generation",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG1",
-    "Message": "Energy efficiency improvements in the Indian brick industry",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Energy efficiency improvements in commercial buildings",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -1427,16 +1197,6 @@
     "Message": "Energy efficiency improvements in commercial buildings",
     "Lat": 28.8945,
     "Lng": 76.5892,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG1",
-    "Message": "Market development and promotion of solar concentrator for process heat applications",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -1610,26 +1370,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Upscaling energy efficient production in small-scale steel industry in India",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG1",
-    "Message": "Scale-up of access to clean energy for rural productive uses",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Assam",
     "District": "Darrang, Kamrup, Goalpara, Barpeta",
     "Thematic Area": "Energy & Environment",
@@ -1657,46 +1397,6 @@
     "Message": "Scale-up of access to clean energy for rural productive uses",
     "Lat": 21.4653,
     "Lng": 83.9757,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG1",
-    "Message": "Sustainable urban transport programme",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Improving energy efficiency in Indian Railways",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG1",
-    "Message": "Preparation of Third National Communication and other new information to the UNFCCC",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Strengthening climate change sensitive planning and implementation",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -1730,16 +1430,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Energy & Environment",
-    "SDG": "SDG2",
-    "Message": "Market transformation and removal of barriers for effective implementation of state-level climate change action plans",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Jharkhand",
     "District": "All Districts",
     "Thematic Area": "Energy & Environment",
@@ -1757,16 +1447,6 @@
     "Message": "Market transformation and removal of barriers for effective implementation of state-level climate change action plans",
     "Lat": 24.6077,
     "Lng": 93.78,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Poverty Reduction",
-    "SDG": "SDG1",
-    "Message": "Governance and accelerated livelihoods support",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -1850,16 +1530,6 @@
     "URL": "http://indianexpress.com/"
   },
   {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Poverty Reduction",
-    "SDG": "SDG2",
-    "Message": "Strengthening national capacities in tribal areas",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
-    "URL": "http://indianexpress.com/"
-  },
-  {
     "State": "Odisha",
     "District": "Sundargarh",
     "Thematic Area": "Poverty Reduction",
@@ -1867,16 +1537,6 @@
     "Message": "Strengthening national capacities in tribal areas",
     "Lat": 20.3164,
     "Lng": 86.6085,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Democratic Governance",
-    "SDG": "SDG2",
-    "Message": "Strengthening capacities of panchayati raj institutions",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   },
   {
@@ -1917,16 +1577,6 @@
     "Message": "Strengthening capacities of panchayati raj institutions",
     "Lat": 23.8361,
     "Lng": 91.2794,
-    "URL": "http://indianexpress.com/"
-  },
-  {
-    "State": "Delhi/NCR",
-    "District": "Delhi",
-    "Thematic Area": "Democratic Governance",
-    "SDG": "SDG1",
-    "Message": "Strengthening public administration and governance",
-    "Lat": 28.7040592,
-    "Lng": 77.1024902,
     "URL": "http://indianexpress.com/"
   }
 ]
