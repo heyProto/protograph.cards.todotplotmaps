@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Maps from '../js/Map.js';
-import DataSource from '../js/DataSource.js';
+// import DataSource from '../js/DataSource.js';
 import Legends from '../js/Legends.js';
 import Util from '../js/Utils';
 
@@ -18,7 +18,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.all([axios.get(this.props.dataURL), axios.get(this.props.topoURL)])
+    const {dataURL, topoURL} = this.props;
+    axios.all([axios.get(dataURL), axios.get(topoURL)])
       .then(axios.spread((card, topo) => {
         this.setState({
           dataJSON: card.data,
@@ -32,7 +33,7 @@ class App extends React.Component {
   }
 
   generateFilters() {
-    let groupData = Util.groupBy(this.state.dataJSON, this.props.filterBy)
+    let groupData = Util.groupBy(this.state.dataJSON, this.props.chartOptions.filterBy)
     this.state.groupedData = groupData 
     return groupData;
   }
@@ -60,7 +61,7 @@ class App extends React.Component {
     if (Object.keys(this.state.dataJSON).length === 0 && this.state.dataJSON.constructor === Object) {
       return(<div>Loading</div>)
     } else { 
-      if (this.props.filterBy !== undefined) {
+      if (this.props.chartOptions.filterBy !== undefined) {
         let group = this.generateFilters(),
           keys = Object.keys(group);
         if (this.state.clicked === false) {
@@ -82,13 +83,13 @@ class App extends React.Component {
       let styles = {
         width: '100%'
       }
+      const {chartTitle, colorCategory, filterBy} = this.props.chartOptions;
       return(
         <div id="protograph_parent" style={styles}>        
-          <h1 id='protograph_map_title'>{this.props.chartTitle}</h1>
-          {this.props.filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
-          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} colorCategory={this.props.colorCategory} colorRange={this.props.colorRange} height={this.props.height} mode={this.props.mode}/>
-          <Legends data={this.state.filteredData} colorCategory={this.props.colorCategory} colorRange={this.props.colorRange}/>
-          <DataSource id="protograph_source_div"/>
+          <h1 id='protograph_map_title'>{chartTitle}</h1>
+          {filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
+          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
+          {colorCategory !== undefined ? <Legends data={this.state.filteredData} chartOptions={this.props.chartOptions} /> : ''}
         </div>
       )
     }   
@@ -106,4 +107,5 @@ class App extends React.Component {
 
 export default App;
 
+// <DataSource id="protograph_source_div"/>
 // {this.props.mode === 'mobile' ? <Search data={this.state.filteredData}/> : ''}

@@ -26,15 +26,10 @@ ProtoGraph.Card.toMaps.prototype.renderLaptop = function () {
   } 
   ReactDOM.render(
     <App
-      dataURL={this.options.data_url}
-      topoURL={this.options.topo_url}
-      chartTitle={this.options.chart_title}
-      height= {this.options.height}
-      width= {this.options.width}
+      dataURL={this.options.dataURL}
+      topoURL={this.options.topoURL}
+      chartOptions={this.options.chartOptions}
       mode={this.mode}
-      colorCategory={this.options.colorCategory}
-      colorRange={this.options.colorRange}
-      filterBy={this.options.filterBy}
       ref={(e) => {
         this.containerInstance = this.containerInstance || e;
       }}/>,

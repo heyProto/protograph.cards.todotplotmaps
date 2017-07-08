@@ -8,7 +8,7 @@ class MapsCard extends React.Component {
   render(){
     let padding = this.props.mode === 'mobile' ? 20 : 0,
       offsetWidth = document.getElementById('protograph_parent').offsetWidth - padding,
-      actualHeight = this.props.height
+      actualHeight = this.props.chartOptions.height
 
     let ch = this.props.topoJSON,
       country = topojson.feature(ch, ch.objects),
@@ -56,7 +56,7 @@ class MapsCard extends React.Component {
         <g id="regions-grp" className="regions">{regions}</g>
         <path className='geo borders' d={path(country)}></path>
         <g className="outlines" style={styles}>{outlines}</g>
-        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} colorCategory={this.props.colorCategory} colorRange={this.props.colorRange} height={actualHeight} width={offsetWidth} />
+        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} chartOptions={this.props.chartOptions} height={actualHeight} width={offsetWidth} />
         <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight} mode={this.props.mode} />
       </svg>
     )
