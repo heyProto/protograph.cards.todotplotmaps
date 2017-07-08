@@ -4,15 +4,15 @@ body {
 
 .borders {
   fill: none;
-  stroke: #888;
-  stroke-width: 0.25px;
+  stroke: white;
+  stroke-width: 0.5px;
   stroke-linejoin: round;
   stroke-linecap: round;
   /*stroke-dasharray: 3;*/
 }
 
 .geo-region {
-  fill: #f3f3f3;
+  fill: #DADFF4;
 }
 
 .region-outline{
@@ -30,6 +30,8 @@ body {
 #map_svg{
   padding-top:20px;
   padding-bottom:20px;
+  background: #fafafa;
+  float: left;
 }
 
 #map_circles{
@@ -38,17 +40,19 @@ body {
 
 #protograph_map_title{
   font-size: 20px;
-  color: #333;
+  color: #000;
   margin:0px;
-  padding: 25px;
+  padding: 20px;
   font-weight: 400;
+  border-top: 2px solid #D80202;
 }
 
 #protograph_parent{
-  -moz-box-shadow: 0 0 5px 5px lightgrey;
-  -webkit-box-shadow: 0 0 5px 5px lightgrey;
-  box-shadow: 0 0 5px 5px lightgrey;
   position: relative;
+  border: 1px solid #efefef;
+  border-top: 0px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 #protograph-tooltip {
@@ -68,7 +72,7 @@ body {
 
 .protograph-source {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 15px;
   color: #7a7a7a;
   border-top: 1px solid #efefef;
@@ -86,35 +90,37 @@ body {
 
 
 .protograph-legends{
-  right: 0px;
-  bottom: 26px;
-  position: absolute;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
+  padding: 10px 20px;
+  background: #fafafa;
 }
 
 .protograph-legends-title{
   margin-bottom: 5px;
   font-weight: bold;
   font-size: 14px;
+  display: none;
 }
 
 .stop{
   white-space: nowrap;
   margin-bottom: 2px;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 .stop-swatch{
   display: inline-block;
-  width: 15px;
+  width: 10px;
   vertical-align: middle;
-  height: 15px;
+  height: 10px;
+  border-radius: 50px;
   margin-right: 5px;
 }
 
 .stop-label{
-  font-size: 13px;
+  font-size: 12px;
   display: inline-block;
+  color: #666;
 }
 
 .t-ownership{
@@ -166,8 +172,7 @@ body {
   position: relative;
   background: white;
   height: 40px;
-  border-bottom: 1px solid #efefef;
-  padding-left: 25px;
+  padding-left: 20px;
 }
 
 .tabs::before,
@@ -178,7 +183,7 @@ body {
 
 .tabs::after { clear: both; }
 
-.tab { float: left; }
+.tab { display: inline-block; }
 
 .tab-switch { display: none; }
 
@@ -186,18 +191,20 @@ body {
   position: relative;
   display: block;
   line-height: 2.75em;
-  height: 40px;
+  /*height: 37px;*/
   padding: 0 1.618em;
-  background: #fafafa;
-  border-right: 1px solid #efefef;
-  border-left: 1px solid #efefef;
-  border-top: 1px solid #efefef;
-  color: #4bc3f7 !important;
+  color: #999 !important;
   cursor: pointer;
   top: 0;
   transition: all 0.25s;
-  margin-right: 5px;
-  font-size: 14px;
+  margin-right: 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  background: #fafafa;
+}
+
+.tab-label:hover{
+  background: #efefef !important;
 }
 
 .tab-switch:checked + .tab-label {
@@ -213,11 +220,12 @@ body {
   z-index: 3;
 }
 
-.active_tab{
-  background: white;
-  /*font-weight: bold;*/
-  color: #4d4d4d !important;
+.active_tab, .active_tab:hover{
+  background: #D80202 !important;
+  color: white !important;
 }
+
+
 
 @media only screen and (max-width: 450px){
   #map_svg {
@@ -227,15 +235,20 @@ body {
     -moz-box-shadow: 0 0 0 0 lightgrey;
     -webkit-box-shadow: 0 0 0 0 lightgrey;
     box-shadow: 0 0 0 0 lightgrey;
+    border-radius: 0px;
+    border: 0;
+    border-bottom: 1px solid #efefef;
   }
   #protograph_map_title{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left:15px;
+    padding: 15px;
   }
 
   .tabs{
     padding-left: 15px;
+  }
+
+  .protograph-legends{
+    padding: 10px 15px;
   }
 
   .searchable-filter-div input{
@@ -276,8 +289,11 @@ body {
   }
 
   #protograph-tooltip {
-    margin-top: 10px;
     width:100%;
+    position: fixed;
+    bottom: 0px;
+    box-shadow: 0px 0px 10px lightgrey;
+    box-sizing: border-box;
   }
 
   body{
