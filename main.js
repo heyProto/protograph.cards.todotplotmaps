@@ -13,6 +13,10 @@ ProtoGraph.Card.toMaps.prototype.init = function (options) {
   this.options = options;
 }
 
+ProtoGraph.Card.toMaps.prototype.getData = function (data) {
+  return this.containerInstance.exportData();
+}
+
 ProtoGraph.Card.toMaps.prototype.renderLaptop = function () {
   let dimension = getScreenSize();
   if (dimension.width <= 400){

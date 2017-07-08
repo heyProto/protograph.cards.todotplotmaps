@@ -26,7 +26,11 @@ class App extends React.Component {
         });
       })); 
   }
-  
+
+  exportData() {
+    return document.getElementById('root').getBoundingClientRect();
+  }
+
   generateFilters() {
     let groupData = Util.groupBy(this.state.dataJSON, this.props.filterBy)
     this.state.groupedData = groupData 
