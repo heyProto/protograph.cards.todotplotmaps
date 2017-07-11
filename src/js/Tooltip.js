@@ -69,13 +69,17 @@ class Tooltip extends React.Component {
           <div className="t-header">demographics</div>
           <div className="t-p">{this.props.cardData.victim_religion} {this.props.cardData.victim_gender} <span className="t-location">({this.props.cardData.victim_tag})</span>
           </div>
-          <hr/>
-          <div className="t-header">type of attack</div>
-          <div className="t-p">{this.props.cardData.victim_religion} {this.props.cardData.victim_gender} <span className="t-location">({this.props.cardData.victim_tag})</span>
+          <div className="t-p">{this.props.cardData.count_injured} injured and {this.props.cardData.count_dead} dead
           </div>
+          <hr/>
+          <div className="t-header">Reason for vigilante attack</div>
+          <div className="t-p">{this.props.cardData.sub_classification}</div>
           <hr/>
           <div className="t-header">what happened?</div>
           <div className="t-p">{this.props.cardData.what_happened}</div>
+          <hr/>
+          <div className="t-header">further reading</div>
+          <div className="t-p"><a href="{this.props.cardData.url}">{this.props.cardData.url}</a></div>
         </div>
       )
     }
