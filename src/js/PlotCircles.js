@@ -15,10 +15,10 @@ class PlotCircles extends React.Component {
     const circles = this.props.dataJSON.map((point, i) => {
       return(
         <circle id="map_circles"
-          className={`map-circles circle-${point.State}-${point.District}`}
+          className={`map-circles circle-${point.state}-${point.area}`}
           key={i} 
-          cx={this.props.projection([point.Lng, point.Lat])[0]} 
-          cy={this.props.projection([point.Lng, point.Lat])[1]} 
+          cx={this.props.projection([point.lng, point.lat])[0]} 
+          cy={this.props.projection([point.lng, point.lat])[1]} 
           r={3} 
           fill={colorCategory !== undefined ? this.setColor(point[colorCategory]) : defaultCircleColor}>
         </circle>

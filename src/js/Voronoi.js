@@ -48,18 +48,20 @@ class Voronoi extends React.Component {
       allCircles = document.getElementsByClassName('map-circles');
 
     for (let j=0; j<allCircles.length; j++){
+      console.log("select all circles")
       allCircles[j].style.stroke = 'none';
     }
 
     for (let i=0; i<getCircles.length; i++){
       if (this.state.display === 'visible'){
+        console.log("if", this.state.display)
         let getFill = getCircles[i].getAttribute('fill')
         getCircles[i].style.stroke = getFill;
         getCircles[i].style.strokeWidth = '4px';
       } else {
-        // console.log("else", this.state.display)
+        console.log("else", this.state.display)
         getCircles[i].style.stroke = 'none';
-        getCircles[i].style.strokeWidth = '0px';
+        // getCircles[i].style.strokeWidth = '1px';
       }     
     }
   }
@@ -69,10 +71,10 @@ class Voronoi extends React.Component {
     let voronoi = d3Voronoi()
       .x(function (d){
         // console.log(d, "d")
-        return projection([d.Lng, d.Lat])[0]
+        return projection([d.lng, d.lat])[0]
       })
       .y(function (d){
-        return projection([d.Lng, d.Lat])[1]
+        return projection([d.lng, d.lat])[1]
       })
       .size([this.props.width, this.props.height])(this.props.data);
       // .extent([[0, 0], [this.props.width, this.props.height]])
@@ -93,14 +95,15 @@ class Voronoi extends React.Component {
    
     let voronoiPaths = cleanVoronoiCells.map((d, i) => {
       // console.log(i, "iiii")
-      let name = `${d.data.State}-${d.data.District}`
+      let name = `${d.data.state}-${d.data.area}`
       return(
         <path style={styles}
           d={`M ${d.join("L")} Z`}
           className={`voronoi ${d.data.State}-${d.data.District}`}
           onMouseMove={(e) => this.handleMouseOver(e, d.data, voronoi, name)}
           onMouseLeave={(e) => this.handleMouseOut(e, d.data, voronoi, name)}
-          onTouchStart={(e) => this.handleMouseOver(e, d.data, voronoi, name)}>
+          onTouchStart={(e) => this.handleMouseOver(e, d.data, voronoi, name)}
+          >
         </path>
       )
     }) 

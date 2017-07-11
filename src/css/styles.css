@@ -26,7 +26,6 @@ body {
   stroke-width: 0.5px*/
 }
 
-
 #map_svg{
   padding-top:20px;
   padding-bottom:20px;
@@ -142,6 +141,10 @@ body {
   font-weight: bold;
 }
 
+.t-image {
+  height: 165px;
+}
+
 
 .t-sector{
   font-size: 12px;
@@ -179,6 +182,12 @@ body {
   background: white;
   height: 40px;
   padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  display: inline-block;
+  overflow-x: scroll;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .tabs::before,
@@ -235,6 +244,19 @@ body {
   #map_svg {
     padding: 10px;
   }
+
+  .tooltip-close-icon{
+   /* position: fixed;
+    right: 5px;
+    top: 5px;*/
+    width: 15px;
+    float: right;
+  }
+
+  #protograph-tooltip {
+    pointer-events:all;
+  } 
+
   #protograph_parent{
     -moz-box-shadow: 0 0 0 0 lightgrey;
     -webkit-box-shadow: 0 0 0 0 lightgrey;
@@ -294,8 +316,8 @@ body {
 
   #protograph-tooltip {
     width:100%;
-    position: fixed;
-    bottom: 0px;
+    /*position: fixed;*/
+    /*bottom: 0px;*/
     box-shadow: 0px 0px 10px lightgrey;
     box-sizing: border-box;
   }

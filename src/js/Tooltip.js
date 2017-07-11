@@ -1,6 +1,11 @@
 import React from 'react';
 
 class Tooltip extends React.Component {
+  handleOnClick(e, data) {
+    console.log(data, "on click data")
+    // document.getElementById('protograph-tooltip').style.display = 'none'
+  }
+
   render(){
     if (this.props.cardData === null){
       return(<div></div>)
@@ -38,31 +43,33 @@ class Tooltip extends React.Component {
         tooltip_left = 0;
         tooltip_top = this.props.height + titleHeight + filtersHeight + sourceHeight + 10;
       }
+      // let styles;
+      // if (this.props.mode === 'laptop'){
       let styles = {
         transition: 'all 0.35s',
         visibility: this.props.isTooltipSeen,
         left: tooltip_left, 
         top: tooltip_top 
       } 
+      // } else {
+      //   styles = {
+      //     transition: 'all 0.35s',
+      //     display: 'block',
+      //     left: tooltip_left 
+      //   } 
+      // }
+     
       return(
-        <div id="protograph-tooltip" style={styles}>
-          <div className="t-company">{this.props.cardData.State}</div>
-          <div className="t-sector">{this.props.cardData.District}</div>
-          <div className="ratings top-row">
-            <div className="label">Elements</div>
-            <div className="value"> 2015 </div>
-            <div className="value"> 2016 </div>
-          </div>
-          <div className="ratings">
-            <div className="label"> Non Discrimination</div>
-            <div className="value"> 0.2 </div>
-            <div className="value">0.5</div>
-          </div>
-          <div className="ratings">
-            <div className="label"> Non Discrimination</div>
-            <div className="value"> 0.2 </div>
-            <div className="value">0.5</div>
-          </div>
+        <div id="protograph-tooltip" style={styles} onClick={(e) => this.handleOnClick(e, this.props.cardData)}>
+          {this.props.mode === 'mobile' ? <div id="tooltip-close" className="tooltip-close-icon">X</div> : ''}
+          <div className="t-sector">{this.props.cardData.date}</div>
+          <div className="t-company">{this.props.cardData.title}</div>
+          <hr/>
+          <img className="t-image" src={this.props.cardData.image ? this.props.cardData.image : ''}/>
+          <div className="t-sector">Demographics: {this.props.cardData.victim_demographics}</div>
+          <div className="t-sector">{this.props.cardData.area}, {this.props.cardData.state}</div>
+          <hr/>
+          <div className="t-sector">{this.props.cardData.what_happened}</div>
         </div>
       )
     }
@@ -70,3 +77,20 @@ class Tooltip extends React.Component {
 }
 
 export default Tooltip;
+
+
+  // <div className="ratings top-row">
+  //           <div className="label">Elements</div>
+  //           <div className="value"> 2015 </div>
+  //           <div className="value"> 2016 </div>
+  //         </div>
+  //         <div className="ratings">
+  //           <div className="label"> Non Discrimination</div>
+  //           <div className="value"> 0.2 </div>
+  //           <div className="value">0.5</div>
+  //         </div>
+  //         <div className="ratings">
+  //           <div className="label"> Non Discrimination</div>
+  //           <div className="value"> 0.2 </div>
+  //           <div className="value">0.5</div>
+  //         </div>
