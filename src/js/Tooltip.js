@@ -18,7 +18,7 @@ class Tooltip extends React.Component {
           tooltip_top = this.props.mouseY + 10;
         } else {
           let tooltip_bbox = document.getElementById("protograph-tooltip").getBoundingClientRect()
-          let width = document.getElementById('protograph_parent').offsetWidth, 
+          let width = document.getElementById('protograph_parent').offsetWidth,
             height = this.props.height;
           // console.log(this.props.mouseX + tooltip_bbox.width, width, tooltip_bbox.width, this.props.mouseX, "----width---")
           if ((this.props.mouseX + tooltip_bbox.width + 20) >= width){
@@ -48,33 +48,41 @@ class Tooltip extends React.Component {
       let styles = {
         transition: 'all 0.35s',
         visibility: this.props.isTooltipSeen,
-        left: tooltip_left, 
-        top: tooltip_top 
-      } 
+        left: tooltip_left,
+        top: tooltip_top
+      }
       // } else {
       //   styles = {
       //     transition: 'all 0.35s',
       //     display: 'block',
-      //     left: tooltip_left 
-      //   } 
+      //     left: tooltip_left
+      //   }
       // }
-     
+
       return(
         <div id="protograph-tooltip" style={styles} onClick={(e) => this.handleOnClick(e, this.props.cardData)}>
-          {this.props.mode === 'mobile' ? <div id="tooltip-close" className="tooltip-close-icon">X</div> : ''}
-          <div className="t-sector">{this.props.cardData.date}</div>
-          <div className="t-company">{this.props.cardData.title}</div>
-          <hr/>
+          <div className="t-date">{this.props.cardData.date}</div>
+          <div className="t-title">{this.props.cardData.title}</div>
+          <div className="t-location">{this.props.cardData.area}, {this.props.cardData.state} ({this.props.cardData.state_ruling_party} ruled)</div>
           <img className="t-image" src={this.props.cardData.image ? this.props.cardData.image : ''}/>
-          <div className="t-sector">Demographics: {this.props.cardData.victim_demographics}</div>
-          <div className="t-sector">{this.props.cardData.area}, {this.props.cardData.state}</div>
           <hr/>
-          <div className="t-sector">{this.props.cardData.what_happened}</div>
+          <div className="t-header">demographics</div>
+          <div className="t-p">{this.props.cardData.victim_religion} {this.props.cardData.victim_gender} <span className="t-location">({this.props.cardData.victim_tag})</span>
+          </div>
+          <hr/>
+          <div className="t-header">type of attack</div>
+          <div className="t-p">{this.props.cardData.victim_religion} {this.props.cardData.victim_gender} <span className="t-location">({this.props.cardData.victim_tag})</span>
+          </div>
+          <hr/>
+          <div className="t-header">what happened?</div>
+          <div className="t-p">{this.props.cardData.what_happened}</div>
         </div>
       )
     }
   }
 }
+
+//{this.props.mode === 'mobile' ? <div id="tooltip-close" className="tooltip-close-icon">X</div> : ''}
 
 export default Tooltip;
 

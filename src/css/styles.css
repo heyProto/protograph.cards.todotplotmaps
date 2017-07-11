@@ -134,10 +134,9 @@ body {
   color: #777;
 }
 
-.t-company{
-  text-transform: capitalize;
+.t-title{
   font-family: helvetica;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -146,12 +145,34 @@ body {
 }
 
 
-.t-sector{
+.t-date{
+  font-size: 10px;
+  margin-bottom: 3px;
+  color: #777;
+  letter-spacing: 0.5px;
+  line-height: 14px;
+}
+
+.t-location{
   font-size: 12px;
   margin-bottom: 15px;
   color: #777;
   letter-spacing: 0.5px;
   line-height: 14px;
+}
+
+.t-header{
+  font-size: 10px;
+  text-transform: uppercase;
+  color: gray;
+  margin-bottom: 0px;
+}
+
+hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
+
+.t-p{
+  font-size: 14px;
+  color: black;
 }
 
 .ratings{
@@ -255,7 +276,7 @@ body {
 
   #protograph-tooltip {
     pointer-events:all;
-  } 
+  }
 
   #protograph_parent{
     -moz-box-shadow: 0 0 0 0 lightgrey;
@@ -304,7 +325,7 @@ body {
   .skills-option{
     padding: 7px 20px;
     color: black;
-    background-color: lightgrey; 
+    background-color: lightgrey;
     font-size: 12px;
     cursor: pointer;
   }
@@ -330,4 +351,4 @@ body {
     stroke-width: 0.5;
   }*/
 }
- 
+
