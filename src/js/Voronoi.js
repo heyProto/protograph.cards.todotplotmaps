@@ -53,10 +53,13 @@ class Voronoi extends React.Component {
 
     for (let i=0; i<getCircles.length; i++){
       if (this.state.display === 'visible'){
-        getCircles[i].style.stroke = 'black';
+        let getFill = getCircles[i].getAttribute('fill')
+        getCircles[i].style.stroke = getFill;
+        getCircles[i].style.strokeWidth = '4px';
       } else {
         // console.log("else", this.state.display)
         getCircles[i].style.stroke = 'none';
+        getCircles[i].style.strokeWidth = '0px';
       }     
     }
   }
