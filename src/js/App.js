@@ -82,10 +82,20 @@ class App extends React.Component {
       } else {
         this.state.filteredData = this.state.dataJSON
       }
-     
-      let styles = {
-        width: '100%'
+      let styles;
+      if (this.props.mode === 'laptop') {
+        styles = {
+          width: 639
+        }
+      } else {
+        styles = {
+          width: '100%'
+        }
       }
+
+      // let styles = {
+      //   width: '100%'
+      // }
       const {chartTitle, colorCategory, filterBy} = this.props.chartOptions;
       return(
         <div id="protograph_parent" style={styles}>        

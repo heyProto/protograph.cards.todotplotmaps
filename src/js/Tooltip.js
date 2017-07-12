@@ -1,17 +1,27 @@
 import React from 'react';
 
 class Tooltip extends React.Component {
+  handleOnClick() {
+    console.log("pushpin");
+    document.getElementById('t-pin').style.display = 'none'
+    let allPath = document.querySelectorAll('.voronoiWrapper path')
+    for (let i=0; i<allPath.length; i++){
+      allPath[i].style.pointerEvents = 'all'
+    }
+  }
+
   render(){
     if (this.props.cardData === null){
       return(<div></div>)
     } else {
       // console.log(this.props.name, "this.props.classname")
-      let tooltip_right, tooltip_top, titleHeight, filtersHeight, sourceHeight;
+      let tooltip_right, tooltip_left, tooltip_top, titleHeight, filtersHeight, sourceHeight;
       titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 0;
       filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 0;
       sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0;
       if (this.props.mode === 'laptop'){
-        tooltip_right = 7;
+        tooltip_right = 384;
+        // tooltip_right = 7;
         tooltip_top = titleHeight + filtersHeight + 10;
       } else {
         tooltip_right = 0;
@@ -20,12 +30,14 @@ class Tooltip extends React.Component {
       let styles = {
         transition: 'all 0.35s',
         display: 'block',
-        right: tooltip_right,
+        left: tooltip_right,
+        // right: tooltip_right,
         top: tooltip_top
       }
 
       return(
         <div id="protograph-tooltip" style={styles}>
+          {this.props.mode === 'laptop' ? <span id="t-pin" className="t-pushpin" onClick={(e) => this.handleOnClick(e)}>x</span> : ''}
           <div className="t-date">{this.props.cardData.date}</div>
           <div className="t-title">{this.props.cardData.title}</div>
           <div className="t-location">{this.props.cardData.area}, {this.props.cardData.state} ({this.props.cardData.state_ruling_party} ruled)</div>

@@ -165,6 +165,17 @@ body {
   line-height: 14px;
 }
 
+
+#t-pin {
+  display: none;
+}
+
+.t-pushpin {
+  height: 30px;
+  float: right;
+  cursor: pointer;
+}
+
 .t-location{
   font-size: 12px;
   margin-bottom: 15px;

@@ -47,14 +47,11 @@ class Voronoi extends React.Component {
 
   handleOnClick(e, card, name) {
     console.log(e.type, "card data on click")
-    let allPath = document.querySelectorAll('.voronoiWrapper path'),
-      currentPath = document.getElementsByClassName(`voronoi ${name}`);
+    document.getElementById('t-pin').style.display = 'block'
+    let allPath = document.querySelectorAll('.voronoiWrapper path');
     for (let i=0; i<allPath.length; i++){
       allPath[i].style.pointerEvents = 'none'
     }
-    // for (let i=0; i<currentPath.length; i++){
-    //   currentPath[i].style.pointerEvents = 'all';    
-    // }
     this.setState({
       tooltipData: card
     })
@@ -109,6 +106,7 @@ class Voronoi extends React.Component {
         <path style={styles}
           d={`M ${d.join("L")} Z`}
           className={`voronoi ${d.data.state}-${d.data.area}`}
+          onClick={(e) => this.handleOnClick(e, d.data, name)}
           onMouseMove={(e) => this.handleMouseOver(e, d.data, voronoi, name)}
           onTouchStart={(e) => this.handleMouseOver(e, d.data, voronoi, name)}
           >
@@ -134,4 +132,4 @@ Array.prototype.clean = function(deleteValue) {
 
 export default Voronoi;
 
-// onClick={(e) => this.handleOnClick(e, d.data, name)}
+// 
