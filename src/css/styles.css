@@ -182,9 +182,14 @@ body {
 
 hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
-.t-p{
-  font-size: 14px;
+.t-p, .t-law{
+  font-size: 13px;
   color: black;
+  line-height: 15px;
+}
+
+.t-padup{
+  margin-top: 10px;
 }
 
 .ratings{

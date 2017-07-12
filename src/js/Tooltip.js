@@ -31,20 +31,32 @@ class Tooltip extends React.Component {
           <div className="t-location">{this.props.cardData.area}, {this.props.cardData.state} ({this.props.cardData.state_ruling_party} ruled)</div>
           {this.props.cardData.image ? <img className="t-image" src={this.props.cardData.image}/> : ''}
           <hr/>
-          <div className="t-header">demographics</div>
-          <div className="t-p">{this.props.cardData.victim_religion} {this.props.cardData.victim_gender} <span className="t-location">({this.props.cardData.victim_tag})</span>
+          <div className="t-header">What were the victims doing?</div>
+          <div className="t-p">
+            {this.props.cardData.victim_religion} {this.props.cardData.victim_gender} {this.props.cardData.victim_tag} {this.props.cardData.victiom_action} 
           </div>
-          <div className="t-p">{this.props.cardData.count_injured} injured and {this.props.cardData.count_dead} dead
-          </div>
+          {this.props.cardData.victim_names !== '' ? <div><div className="t-p t-padup">Names of the victims - {this.props.cardData.victim_names}</div></div> : ''}
           <hr/>
-          <div className="t-header">Reason for vigilante attack</div>
-          <div className="t-p">{this.props.cardData.sub_classification}</div>
+          <div className="t-header">What was the mob doing?</div>
+          <div className="t-p">
+            {this.props.cardData.accused_religion} {this.props.cardData.accused_gender} {this.props.cardData.accused_tag} {this.props.cardData.accused_action} 
+          </div>
+          {this.props.cardData.accused_names !== '' ? <div><div className="t-p t-padup">Names of the accused - {this.props.cardData.accused_names}</div></div> : ''}
+          <hr/>
+          <div className="t-header">Was it illegal?</div>
+          <div className="t-p">
+          The mob broke the law. 
+          {this.props.cardData.does_the_state_criminalise_victims_actions === 'No' ? '' : <span> The victims actions were also possibly illegal because {this.props.cardData.which_law}</span>
+          }
+          </div>
           <hr/>
           <div className="t-header">what happened?</div>
-          <div className="t-p">{this.props.cardData.what_happened}</div>
+          <div className="t-p">{this.props.cardData.the_lynching}</div>
+          <div className="t-p t-padup">{this.props.cardData.count_injured} victims were injured and {this.props.cardData.count_dead} victims were left dead.
+          </div>
           <hr/>
           <div className="t-header">further reading</div>
-          <div className="t-p"><a href="{this.props.cardData.url}">{this.props.cardData.url}</a></div>
+          <div className="t-p t-padup"><a href="{this.props.cardData.url}">{this.props.cardData.url}</a></div>
         </div>
       )
     }
