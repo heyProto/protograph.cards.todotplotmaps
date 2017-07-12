@@ -40,7 +40,6 @@ class App extends React.Component {
   }
 
   handleClick(e, key, group) {
-    document.getElementById('protograph-tooltip')? document.getElementById('protograph-tooltip').style.display = 'none' : ''
     this.setState({
       filteredData: group[key],
       clicked: true

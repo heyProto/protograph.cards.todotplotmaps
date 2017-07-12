@@ -10,13 +10,16 @@ class MapsCard extends React.Component {
       offsetWidth = document.getElementById('protograph_parent').offsetWidth - padding,
       actualHeight = this.props.chartOptions.height
 
+    let tx = this.props.mode === 'mobile' ? offsetWidth / 2 : 450;
+
     let ch = this.props.topoJSON,
       country = topojson.feature(ch, ch.objects),
       center = geoCentroid(topojson.feature(ch, ch.objects)),
       scale = 700,
       projection = geoMercator().center(center)
         .scale(scale)
-        .translate([offsetWidth / 2, actualHeight / 2]),
+        .translate([tx, actualHeight/2]),
+        // .translate([offsetWidth / 2, actualHeight/ 2]),
       path = geoPath()
         .projection(projection);
 
