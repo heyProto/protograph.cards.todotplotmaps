@@ -8,12 +8,13 @@ class Voronoi extends React.Component {
     super(props)
     this.state = {
       tooltipData: {},
-      display: 'visible'
+      visibility: 'visible',
+      display: 'block'
     }
   }
 
   componentDidUpdate() {
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.display} height={this.props.height} mode={this.props.mode} name={this.state.name}/>, document.getElementById('renderTooltip'))
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} mouseX={this.state.mouseX} mouseY={this.state.mouseY} isTooltipSeen={this.state.visibility} isTooltipSeenMobile={this.state.display} height={this.props.height} mode={this.props.mode} name={this.state.name}/>, document.getElementById('renderTooltip'))
   }
 
   handleMouseOver(e, card, voronoi, name) {
@@ -29,7 +30,8 @@ class Voronoi extends React.Component {
     }   
     this.setState({
       tooltipData: nearestCardData,
-      display: 'visible',
+      visibility: 'visible',
+      display: 'block',
       mouseX: e.pageX,
       mouseY: e.pageY
     })
@@ -38,7 +40,8 @@ class Voronoi extends React.Component {
 
   handleMouseOut() {
     this.setState({
-      display: 'hidden'
+      visibility: 'hidden',
+      display: 'none'
     })
     this.highlightCircle(name)
   }
@@ -53,13 +56,14 @@ class Voronoi extends React.Component {
     }
 
     for (let i=0; i<getCircles.length; i++){
-      if (this.state.display === 'visible'){
-        console.log("if", this.state.display)
-        let getFill = getCircles[i].getAttribute('fill')
-        getCircles[i].style.stroke = getFill;
-        getCircles[i].style.strokeWidth = '4px';
+      if (this.state.visibility === 'visible'){
+        console.log("if", this.state.visibility)
+        // let getFill = getCircles[i].getAttribute('fill')
+        // getCircles[i].style.stroke = getFill;
+        getCircles[i].style.stroke = '#D80202';
+        getCircles[i].style.strokeWidth = '3.5px';
       } else {
-        console.log("else", this.state.display)
+        console.log("else", this.state.visibility)
         getCircles[i].style.stroke = 'none';
         // getCircles[i].style.strokeWidth = '1px';
       }     

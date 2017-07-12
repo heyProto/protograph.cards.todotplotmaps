@@ -3,7 +3,8 @@ import React from 'react';
 class Tooltip extends React.Component {
   handleOnClick(e, data) {
     console.log(data, "on click data")
-    // document.getElementById('protograph-tooltip').style.display = 'none'
+    // this.props.isTooltipSeenMobile = 'none'
+    // document.getElementById('protograph-tooltip').style.display = this.props.isTooltipSeenMobile;
   }
 
   render(){
@@ -43,28 +44,31 @@ class Tooltip extends React.Component {
         tooltip_left = 0;
         tooltip_top = this.props.height + titleHeight + filtersHeight + sourceHeight + 10;
       }
-      // let styles;
-      // if (this.props.mode === 'laptop'){
-      let styles = {
-        transition: 'all 0.35s',
-        visibility: this.props.isTooltipSeen,
-        left: tooltip_left,
-        top: tooltip_top
+      let styles;
+      if (this.props.mode === 'laptop'){
+        styles = {
+          transition: 'all 0.35s',
+          visibility: this.props.isTooltipSeen,
+          left: tooltip_left,
+          top: tooltip_top
+        }
+      } else {
+        styles = {
+          transition: 'all 0.35s',
+          // visibility: this.props.isTooltipSeen,
+          display: this.props.isTooltipSeenMobile,
+          left: tooltip_left,
+          top: tooltip_top
+        }
       }
-      // } else {
-      //   styles = {
-      //     transition: 'all 0.35s',
-      //     display: 'block',
-      //     left: tooltip_left
-      //   }
-      // }
 
       return(
         <div id="protograph-tooltip" style={styles} onClick={(e) => this.handleOnClick(e, this.props.cardData)}>
+          {this.props.mode === 'mobile' ? <div id="tooltip-close" className="tooltip-close-icon">X</div> : ''}
           <div className="t-date">{this.props.cardData.date}</div>
           <div className="t-title">{this.props.cardData.title}</div>
           <div className="t-location">{this.props.cardData.area}, {this.props.cardData.state} ({this.props.cardData.state_ruling_party} ruled)</div>
-          <img className="t-image" src={this.props.cardData.image ? this.props.cardData.image : ''}/>
+          {this.props.cardData.image ? <img className="t-image" src={this.props.cardData.image}/> : ''}
           <hr/>
           <div className="t-header">demographics</div>
           <div className="t-p">{this.props.cardData.victim_religion} {this.props.cardData.victim_gender} <span className="t-location">({this.props.cardData.victim_tag})</span>
@@ -81,8 +85,6 @@ class Tooltip extends React.Component {
     }
   }
 }
-
-//{this.props.mode === 'mobile' ? <div id="tooltip-close" className="tooltip-close-icon">X</div> : ''}
 
 export default Tooltip;
 

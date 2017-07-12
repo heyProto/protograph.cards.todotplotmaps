@@ -35,10 +35,12 @@ class App extends React.Component {
   generateFilters() {
     let groupData = Util.groupBy(this.state.dataJSON, this.props.chartOptions.filterBy)
     this.state.groupedData = groupData 
+    console.log(groupData, "groupData")
     return groupData;
   }
 
   handleClick(e, key, group) {
+    document.getElementById('protograph-tooltip')? document.getElementById('protograph-tooltip').style.display = 'none' : ''
     this.setState({
       filteredData: group[key],
       clicked: true
@@ -63,16 +65,18 @@ class App extends React.Component {
     } else { 
       if (this.props.chartOptions.filterBy !== undefined) {
         let group = this.generateFilters(),
-          keys = Object.keys(group);
+          keys = Object.keys(group),
+          values = Object.values(group);
         if (this.state.clicked === false) {
           this.state.filteredData =  group[keys[0]];
         }
         tabs = keys.map((key, i) => { 
+          let length = values[i].length;
           let active = (i===0) ? ' active_tab' : ''; //onload show the first tab active  
           return (
             <div key={key} id={key} className="tab" onClick={(e) => this.handleClick(e, key, group)}>
               <input type="radio" id={`tab-${key}`} className="tab-switch"/>
-              <label htmlFor={`tab-${key}`} className={`tab-label${active}`}>{key}</label>
+              <label htmlFor={`tab-${key}`} className={`tab-label${active}`}>{key} ({length})</label>
             </div>
           ) 
         })
