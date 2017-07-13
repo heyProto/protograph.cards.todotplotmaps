@@ -3,12 +3,8 @@ import React from 'react';
 class Tooltip extends React.Component {
   handleOnClick() {
     console.log("pushpin");
-    document.getElementById('t-pin').style.display = 'none'
+    document.getElementById('t-pin') ? document.getElementById('t-pin').style.display = 'none': ''
     this.props.handleCircleClicked(false);
-    // let allPath = document.querySelectorAll('.voronoiWrapper path')
-    // for (let i=0; i<allPath.length; i++){
-    //   allPath[i].style.pointerEvents = 'all'
-    // }
   }
 
   render(){
@@ -20,7 +16,7 @@ class Tooltip extends React.Component {
       filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 40;
       sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0;
       if (this.props.mode === 'laptop'){
-        tooltip_right = 384;
+        tooltip_right = 374;
         // tooltip_right = 7;
         tooltip_top = titleHeight + filtersHeight + 10;
       } else {

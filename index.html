@@ -7,87 +7,84 @@
     <link rel="stylesheet" type="text/css" href="src/css/styles.css">
   </head>
   <body>
-    <div id="parent">
-       <!--  <div id='renderTooltip'></div>
-        <div id="root"></div> -->
-    </div>
+    <div id="parent"></div>
     <script src="https://d2m6lzru8erw1k.cloudfront.net/lib/oasis.min.js"></script>
     <script src = "bundle.js"></script>
     <script>
     var x = new ProtoGraph.Card.toMaps()
-    // var ReceiverConsumer = Oasis.Consumer.extend({
-    //   requests: {
-    //     receive: function(mode) {
-    //       x.init({
-    //         selector: document.querySelector('#root'),
-    //         dataURL: 'src/data/data.json',
-    //         topoURL: 'src/data/india-topo.json',
-    //         chartOptions: {
-    //           chartTitle: 'Cow related violence by state',
-    //           height: 400,
-    //           colorCategory: 'Thematic Area',
-    //           colorRange: ["#F7630C", "#B146C2", "#00AFF0", "#00CC6A"], //orange, purple, blue, green
-    //           // defaultCircleColor: '#2e80e0',
-    //           filterBy: 'SDG'
-    //         }
-    //       })
-    //       renderWithMode(mode);
-    //     }
-    //   },
-    //   events: {
-    //     get_size: function(){
-    //       var that = this;
-    //       var intervalId = setInterval(function(){
-    //         clientRect = x.getData();
-    //         if(clientRect.height){
-    //           var height = clientRect.height,
-    //             width = clientRect.width;
-    //           that.send("resize_frame", {height: height, width: width});
-    //           clearInterval(intervalId);
-    //         }
-    //       }, 10)
+    var ReceiverConsumer = Oasis.Consumer.extend({
+      requests: {
+        receive: function(mode) {
+          x.init({
+            selector: document.querySelector('#parent'),
+            dataURL: 'src/data/cow_violence.json',
+            topoURL: 'src/data/india-topo.json',
+            chartOptions: {
+              chartTitle: 'Mob Justice in India against',
+              height: 400,
+              // colorCategory: 'Thematic Area',
+              // colorRange: ["#F7630C", "#B146C2", "#00AFF0", "#00CC6A"], //orange, purple, blue, green
+              defaultCircleColor: '#2e80e0',
+              filterBy: 'menu'
+            }
+          })
+          renderWithMode(mode);
+        }
+      },
+      events: {
+        get_size: function(){
+          var that = this;
+          var intervalId = setInterval(function(){
+            clientRect = x.getData();
+            if(clientRect.height){
+              var height = clientRect.height,
+                width = clientRect.width;
+              that.send("resize_frame", {height: height, width: width});
+              clearInterval(intervalId);
+            }
+          }, 10)
 
-    //     },
-    //     change_mode: function(mode){
-    //       renderWithMode(mode);
-    //       var that = this;
-    //       setTimeout(function(){
-    //         height = x.getData().height;
-    //         that.send("resize_frame", {height: height});
-    //       })
-    //     }
-    //   }
-    // });
-    // oasis.connect({
-    //   consumers: {
-    //     receive: ReceiverConsumer
-    //   }
-    // });
-
-    // function renderWithMode(mode) {
-    //   switch(mode){
-    //     case "laptop":
-    //       x.renderLaptop();
-    //       break;
-    //     case "mobile":
-    //       x.renderMobile();
-    //       break;
-    //   }
-    // }
-    x.init({
-      selector: document.querySelector('#parent'),
-      dataURL: 'src/data/cow_violence.json',
-      topoURL: 'src/data/india-topo.json',
-      chartOptions: {
-        chartTitle: 'Mob Justice in India against',
-        height: 400,
-        // colorCategory: 'Thematic Area',
-        // colorRange: ["#F7630C", "#B146C2", "#00AFF0", "#00CC6A"], //orange, purple, blue, green
-        defaultCircleColor: '#2e80e0',
-        filterBy: 'menu'
+        },
+        change_mode: function(mode){
+          renderWithMode(mode);
+          var that = this;
+          setTimeout(function(){
+            height = x.getData().height;
+            that.send("resize_frame", {height: height});
+          })
+        }
       }
-    })
-    x.renderLaptop();
+    });
+    oasis.connect({
+      consumers: {
+        receive: ReceiverConsumer
+      }
+    });
+
+    function renderWithMode(mode) {
+      switch(mode){
+        case "laptop":
+          x.renderLaptop();
+          break;
+        case "mobile":
+          x.renderMobile();
+          break;
+      }
+    }
+    // x.init({
+    //   selector: document.querySelector('#parent'),
+    //   dataURL: 'src/data/cow_violence.json',
+    //   topoURL: 'src/data/india-topo.json',
+    //   chartOptions: {
+    //     chartTitle: 'Mob Justice in India against',
+    //     height: 400,
+    //     // colorCategory: 'Thematic Area',
+    //     // colorRange: ["#F7630C", "#B146C2", "#00AFF0", "#00CC6A"], //orange, purple, blue, green
+    //     defaultCircleColor: '#2e80e0',
+    //     filterBy: 'menu'
+    //   }
+    // })
+    // x.renderLaptop();
     </script>
   </body>
 </html>

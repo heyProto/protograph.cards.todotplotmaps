@@ -1,5 +1,6 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0px
 }
 
 .geo-borders {
@@ -78,7 +79,7 @@ body {
   z-index: 100;
   pointer-events: all;
   overflow-y: scroll;
-  height: 420px;
+  height: 413px;
 }
 
 .protograph-source {

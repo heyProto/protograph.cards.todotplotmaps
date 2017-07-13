@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   exportData() {
-    return document.getElementById('root').getBoundingClientRect();
+    return document.getElementById('main-div').getBoundingClientRect();
   }
 
   generateFilters() {
@@ -107,13 +107,9 @@ class App extends React.Component {
         }
       } else {
         styles = {
-          width: '100%'
+          width: this.props.dimensionWidth
         }
       }
-
-      // let styles = {
-      //   width: '100%'
-      // }
       
       const {chartTitle, colorCategory, filterBy} = this.props.chartOptions;
       return(

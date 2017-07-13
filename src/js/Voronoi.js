@@ -18,6 +18,7 @@ class Voronoi extends React.Component {
   }
 
   handleMouseOver(e, card, voronoi, name) {
+    console.log("mouseover")
     if (!this.props.circleClicked) {
       let nearestCardData;
       if (this.props.mode === 'laptop'){
@@ -36,32 +37,16 @@ class Voronoi extends React.Component {
     }
   }
 
-  handleMouseOut(e) {
-    e.preventDefault();
-    // this.setState({
-    //   visibility: 'visible',
-    //   display: 'none'
-    // })
-    // this.highlightCircle(name)
-    // let allPath = document.querySelectorAll('.voronoiWrapper path')
-    // for (let i=0; i<allPath.length; i++){
-    //   allPath[i].style.pointerEvents = 'all'
-    // }
-  }
-
   handleOnClick(e, card, name) {
-    console.log(name, "card data on click")
-    this.props.handleCircleClicked(true);
-    // this.state.circleClicked = true;
-    document.getElementById('t-pin').style.display = 'block'
-    let allPath = document.querySelectorAll('.voronoiWrapper path');
-    // for (let i=0; i<allPath.length; i++){
-    //   allPath[i].style.pointerEvents = 'none'
-    // }
-    Util.highlightCircle(name)
-    this.setState({
-      tooltipData: card
-    })
+    if (this.props.mode === 'laptop'){
+      this.props.handleCircleClicked(true);
+      document.getElementById('t-pin').style.display = 'block'
+      let allPath = document.querySelectorAll('.voronoiWrapper path');
+      Util.highlightCircle(name)
+      this.setState({
+        tooltipData: card
+      })
+    }
   }
 
   render() {

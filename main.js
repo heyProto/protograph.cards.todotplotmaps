@@ -24,12 +24,14 @@ ProtoGraph.Card.toMaps.prototype.renderLaptop = function () {
   } else {
     this.mode = 'laptop';
   } 
+  console.log(this.mode, "mode")
   ReactDOM.render(
     <App
       dataURL={this.options.dataURL}
       topoURL={this.options.topoURL}
       chartOptions={this.options.chartOptions}
       mode={this.mode}
+      dimensionWidth = {dimension.width}
       ref={(e) => {
         this.containerInstance = this.containerInstance || e;
       }}/>,
