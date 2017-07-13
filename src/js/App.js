@@ -90,7 +90,7 @@ class App extends React.Component {
           let length = values[i].length;
           let active = (i===0) ? ' active_tab' : ''; //onload show the first tab active  
           return (
-            <div key={key} id={key} className="tab" onClick={(e) => this.handleClick(e, key, group)}>
+            <div key={key} id={key} className="single-tab" onClick={(e) => this.handleClick(e, key, group)}>
               <input type="radio" id={`tab-${key}`} className="tab-switch"/>
               <label htmlFor={`tab-${key}`} className={`tab-label${active}`}>{key} ({length})</label>
             </div>
@@ -110,7 +110,7 @@ class App extends React.Component {
           </div> 
           <div id="protograph_parent">        
             <h1 id='protograph_map_title'>{chartTitle}</h1>
-            {filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
+            {filterBy !== undefined ? <div id="protograph_filters" className="pg-tabs"> {tabs} </div> : ''}
             {colorCategory !== undefined ? <Legends data={this.state.filteredData} chartOptions={this.props.chartOptions} /> : ''}
             <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} onLoadTooltipData={this.state.filteredData[0]} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
           </div>
