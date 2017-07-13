@@ -13,10 +13,13 @@ class Voronoi extends React.Component {
   }
 
   componentDidUpdate() {
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode} handleCircleClicked={this.props.handleCircleClicked}/>, document.getElementById('renderTooltip'))  
+    if (this.props.circleHover) {
+      ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode} handleCircleClicked={this.props.handleCircleClicked}/>, document.getElementById('renderTooltip')) 
+    }   
   }
 
-  handleMouseOver(e, card, voronoi, name) {
+  handleMouseOver(e, card, name) {
+    this.props.circleHover = true;
     if (!this.props.circleClicked) { 
       this.setState({
         tooltipData: card
@@ -38,42 +41,33 @@ class Voronoi extends React.Component {
   }
 
   render() {
-    let projection = this.props.projection
-    let voronoi = d3Voronoi()
-      .x(function (d){
-        // console.log(d, "d")
-        return projection([d.lng, d.lat])[0]
-      })
-      .y(function (d){
-        return projection([d.lng, d.lat])[1]
-      })
-      .size([this.props.width, this.props.height])(this.props.data);
-      // .extent([[0, 0], [this.props.width, this.props.height]])
-    
-    // console.log("voronoi", voronoi)
-    let polygons = voronoi.polygons(this.props.data)
-    // console.log(a, "polygons")
-    // let voronoiData = voronoi(this.props.data)
+    let projection = this.props.projection,
+      voronoi = d3Voronoi()
+        .x(function (d){
+          return projection([d.lng, d.lat])[0]
+        })
+        .y(function (d){
+          return projection([d.lng, d.lat])[1]
+        })
+        .size([this.props.width, this.props.height])(this.props.data);
 
-    // console.log("voronoiData", voronoiData)
-    let cleanVoronoiCells = polygons.clean(undefined)
+    let polygons = voronoi.polygons(this.props.data),
+      cleanVoronoiCells = polygons.clean(undefined);
 
-    // console.log(cleanVoronoiCells, "cleanVoronoiCells")
     let styles = {
       fill: 'none',
       pointerEvents: 'all'
     }
    
     let voronoiPaths = cleanVoronoiCells.map((d, i) => {
-      // console.log(i, "iiii")
       let name = `${d.data.state}-${d.data.area}`
       return(
         <path style={styles}
           d={`M ${d.join("L")} Z`}
           className={`voronoi ${d.data.state}-${d.data.area}`}
           onClick={(e) => this.handleOnClick(e, d.data, name)}
-          onMouseMove={(e) => this.handleMouseOver(e, d.data, voronoi, name)}
-          onTouchStart={(e) => this.handleMouseOver(e, d.data, voronoi, name)}
+          onMouseMove={(e) => this.handleMouseOver(e, d.data, name)}
+          onTouchStart={(e) => this.handleMouseOver(e, d.data, name)}
           >
         </path>
       )

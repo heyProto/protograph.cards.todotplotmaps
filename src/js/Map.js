@@ -82,7 +82,7 @@ class MapsCard extends React.Component {
         <path className='geo-borders' d={path(country)}></path>
         <g className="outlines" style={styles}>{outlines}</g>
         <PlotCircles dataJSON={this.props.dataJSON} projection={projection} chartOptions={this.props.chartOptions} height={actualHeight} width={offsetWidth} />
-        <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight} mode={this.props.mode} onLoadTooltipData={this.props.onLoadTooltipData} circleClicked={this.props.circleClicked} handleCircleClicked={this.props.handleCircleClicked}/>
+        <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight} mode={this.props.mode} onLoadTooltipData={this.props.onLoadTooltipData} circleClicked={this.props.circleClicked} handleCircleClicked={this.props.handleCircleClicked} circleHover={this.props.circleHover}/>
       </svg>
     )
   }

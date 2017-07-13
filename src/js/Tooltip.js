@@ -1,36 +1,48 @@
 import React from 'react';
 
 class Tooltip extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      tooltip_top: undefined,
+      tooltip_right: undefined
+    }
+  }
+
   handleOnClick() {
     console.log("pushpin");
     document.getElementById('t-pin') ? document.getElementById('t-pin').style.display = 'none': ''
     this.props.handleCircleClicked(false);
   }
 
+  componentWillMount() {
+    let tooltip_right, tooltip_left, tooltip_top, titleHeight, filtersHeight, sourceHeight;
+      titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 66;
+      filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 40;
+      sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0;
+    if (this.props.mode === 'laptop'){
+      tooltip_right = 374;
+      tooltip_top = titleHeight + filtersHeight + 10;
+    } else {
+      tooltip_right = 0;
+      tooltip_top = this.props.height + titleHeight + filtersHeight + sourceHeight + 10;
+    }
+    this.setState({
+      tooltip_top: tooltip_top,
+      tooltip_right: tooltip_right
+    })
+  }
+
   render(){
     if (this.props.cardData === null){
       return(<div></div>)
     } else {
-      let tooltip_right, tooltip_left, tooltip_top, titleHeight, filtersHeight, sourceHeight;
-      titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 66;
-      filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 40;
-      sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0;
-      if (this.props.mode === 'laptop'){
-        tooltip_right = 374;
-        // tooltip_right = 7;
-        tooltip_top = titleHeight + filtersHeight + 10;
-      } else {
-        tooltip_right = 0;
-        tooltip_top = this.props.height + titleHeight + filtersHeight + sourceHeight + 10;
-      }
       let styles = {
         transition: 'all 0.35s',
         display: 'block',
-        left: tooltip_right,
-        // right: tooltip_right,
-        top: tooltip_top
+        left: this.state.tooltip_right,
+        top: this.state.tooltip_top
       }
-
       return(
         <div id="protograph-tooltip" style={styles}>
           {this.props.mode === 'laptop' ? <span id="t-pin" className="t-pushpin" onClick={(e) => this.handleOnClick(e)}>x</span> : ''}

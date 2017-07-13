@@ -24,7 +24,6 @@ ProtoGraph.Card.toMaps.prototype.renderLaptop = function () {
   } else {
     this.mode = 'laptop';
   } 
-  console.log(this.mode, "mode")
   ReactDOM.render(
     <App
       dataURL={this.options.dataURL}
