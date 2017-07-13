@@ -191,6 +191,10 @@ body {
   margin-bottom: 0px;
 }
 
+#t-further-reading{
+  word-wrap: break-word;
+}
+
 hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .t-p, .t-law{

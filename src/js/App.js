@@ -14,8 +14,10 @@ class App extends React.Component {
       filteredData: {},
       topoJSON: {},
       clicked: false,
+      circleClicked: false,
       groupedData: undefined  
     }
+    this.handleCircleClicked = this.handleCircleClicked.bind(this);
   }
 
   componentDidMount() {
@@ -26,10 +28,11 @@ class App extends React.Component {
           dataJSON: card.data,
           topoJSON: topo.data         
         });
+        this.highlightCircleName();
       })); 
   }
 
-  componentDidUpdate() {
+  highlightCircleName() {
     console.log("componentDidUpdate in App")
     this.state.onLoadTooltipData = this.state.filteredData[0]
     let name = `${this.state.filteredData[0].state}-${this.state.filteredData[0].area}`
@@ -52,6 +55,7 @@ class App extends React.Component {
       filteredData: group[key],
       clicked: true
     })
+    this.highlightCircleName();
     let elm = document.getElementsByClassName('tab-label active_tab'),
       inactiveClass = "tab-label",
       activeClass = "tab-label active_tab";
@@ -63,6 +67,12 @@ class App extends React.Component {
     let selectTab = document.getElementById(key),
       selectLabel = selectTab.querySelector('label');
     selectLabel.className = activeClass;
+  }
+
+  handleCircleClicked(bool) {
+    this.setState({
+      circleClicked: bool
+    })
   }
 
   renderLaptop() {
@@ -109,13 +119,13 @@ class App extends React.Component {
       return(
         <div id="main-div" style={styles}>
           <div id="renderTooltip">
-            <Tooltip cardData={this.state.filteredData[0]} height={this.props.chartOptions.height} mode={this.props.mode}/>
+            <Tooltip cardData={this.state.filteredData[0]} height={this.props.chartOptions.height} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked}/>
           </div> 
           <div id="protograph_parent">        
             <h1 id='protograph_map_title'>{chartTitle}</h1>
             {filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
             {colorCategory !== undefined ? <Legends data={this.state.filteredData} chartOptions={this.props.chartOptions} /> : ''}
-            <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} onLoadTooltipData={this.state.onLoadTooltipData}/>
+            <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} onLoadTooltipData={this.state.onLoadTooltipData} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked}/>
           </div>
        </div>
         

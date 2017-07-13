@@ -10,29 +10,30 @@ class Voronoi extends React.Component {
     this.state = {
       tooltipData: this.props.onLoadTooltipData
     }
-    console.log("constructor")
   }
 
   componentDidUpdate() {
     // console.log("componentDidUpdate in voronoi", this.state.tooltipData)
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))   
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode} handleCircleClicked={this.props.handleCircleClicked}/>, document.getElementById('renderTooltip'))   
   }
 
   handleMouseOver(e, card, voronoi, name) {
-    let nearestCardData;
-    if (this.props.mode === 'laptop'){
-      // const radius = this.props.width/50,
-      //   site = voronoi.find(e.pageX, e.pageY, 10);
-      // nearestCardData = site && site.data;
-      // console.log(nearestCardData,site, e.pageX, e.pageY, "nearestCardData")
-      nearestCardData = card;
-    } else {
-      nearestCardData = card;
-    }   
-    this.setState({
-      tooltipData: nearestCardData
-    })
-    Util.highlightCircle(name)
+    if (!this.props.circleClicked) {
+      let nearestCardData;
+      if (this.props.mode === 'laptop'){
+        // const radius = this.props.width/50,
+        //   site = voronoi.find(e.pageX, e.pageY, 10);
+        // nearestCardData = site && site.data;
+        // console.log(nearestCardData,site, e.pageX, e.pageY, "nearestCardData")
+        nearestCardData = card;
+      } else {
+        nearestCardData = card;
+      }   
+      this.setState({
+        tooltipData: nearestCardData
+      })
+      Util.highlightCircle(name)
+    }
   }
 
   handleMouseOut(e) {
@@ -49,12 +50,15 @@ class Voronoi extends React.Component {
   }
 
   handleOnClick(e, card, name) {
-    console.log(e.type, "card data on click")
+    console.log(name, "card data on click")
+    this.props.handleCircleClicked(true);
+    // this.state.circleClicked = true;
     document.getElementById('t-pin').style.display = 'block'
     let allPath = document.querySelectorAll('.voronoiWrapper path');
-    for (let i=0; i<allPath.length; i++){
-      allPath[i].style.pointerEvents = 'none'
-    }
+    // for (let i=0; i<allPath.length; i++){
+    //   allPath[i].style.pointerEvents = 'none'
+    // }
+    Util.highlightCircle(name)
     this.setState({
       tooltipData: card
     })

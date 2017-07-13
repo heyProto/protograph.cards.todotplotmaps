@@ -4,10 +4,11 @@ class Tooltip extends React.Component {
   handleOnClick() {
     console.log("pushpin");
     document.getElementById('t-pin').style.display = 'none'
-    let allPath = document.querySelectorAll('.voronoiWrapper path')
-    for (let i=0; i<allPath.length; i++){
-      allPath[i].style.pointerEvents = 'all'
-    }
+    this.props.handleCircleClicked(false);
+    // let allPath = document.querySelectorAll('.voronoiWrapper path')
+    // for (let i=0; i<allPath.length; i++){
+    //   allPath[i].style.pointerEvents = 'all'
+    // }
   }
 
   render(){
@@ -67,7 +68,7 @@ class Tooltip extends React.Component {
           </div>
           <hr/>
           <div className="t-header">further reading</div>
-          <div className="t-p t-padup"><a href="{this.props.cardData.url}">{this.props.cardData.url}</a></div>
+          <div className="t-p t-padup"><a id="t-further-reading" href="{this.props.cardData.url}">{this.props.cardData.url}</a></div>
         </div>
       )
     }
