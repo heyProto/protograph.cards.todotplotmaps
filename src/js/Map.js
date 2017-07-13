@@ -7,7 +7,7 @@ import Voronoi from '../js/Voronoi';
 class MapsCard extends React.Component {
   render(){
     let padding = this.props.mode === 'mobile' ? 20 : 0,
-      offsetWidth = document.getElementById('protograph_parent').offsetWidth - padding,
+      offsetWidth = document.getElementById('main-div').offsetWidth - padding,
       actualHeight = this.props.chartOptions.height
 
     let tx = this.props.mode === 'mobile' ? offsetWidth / 2 : 450;
@@ -57,7 +57,7 @@ class MapsCard extends React.Component {
     return(
       <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${actualHeight}`} width={offsetWidth} height={actualHeight}>
         <g id="regions-grp" className="regions">{regions}</g>
-        <path className='geo borders' d={path(country)}></path>
+        <path className='geo-borders' d={path(country)}></path>
         <g className="outlines" style={styles}>{outlines}</g>
         <PlotCircles dataJSON={this.props.dataJSON} projection={projection} chartOptions={this.props.chartOptions} height={actualHeight} width={offsetWidth} />
         <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={actualHeight} mode={this.props.mode} />

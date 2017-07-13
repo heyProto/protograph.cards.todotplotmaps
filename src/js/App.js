@@ -3,6 +3,7 @@ import axios from 'axios';
 import Maps from '../js/Map.js';
 // import DataSource from '../js/DataSource.js';
 import Legends from '../js/Legends.js';
+import Tooltip from '../js/Tooltip';
 import Util from '../js/Utils';
 
 class App extends React.Component {
@@ -26,6 +27,11 @@ class App extends React.Component {
           topoJSON: topo.data         
         });
       })); 
+  }
+
+  componentDidUpdate() {
+    let name = `${this.state.filteredData[0].state}-${this.state.filteredData[0].area}`
+    Util.highlightCircle(name)
   }
 
   exportData() {
@@ -98,12 +104,18 @@ class App extends React.Component {
       // }
       const {chartTitle, colorCategory, filterBy} = this.props.chartOptions;
       return(
-        <div id="protograph_parent" style={styles}>        
-          <h1 id='protograph_map_title'>{chartTitle}</h1>
-          {filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
-          {colorCategory !== undefined ? <Legends data={this.state.filteredData} chartOptions={this.props.chartOptions} /> : ''}
-          <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
-        </div>
+        <div id="main-div" style={styles}>
+          <div id="renderTooltip">
+            <Tooltip cardData={this.state.filteredData[0]} height={this.props.chartOptions.height} mode={this.props.mode}/>
+          </div> 
+          <div id="protograph_parent">        
+            <h1 id='protograph_map_title'>{chartTitle}</h1>
+            {filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
+            {colorCategory !== undefined ? <Legends data={this.state.filteredData} chartOptions={this.props.chartOptions} /> : ''}
+            <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
+          </div>
+       </div>
+        
       )
     }   
   }

@@ -16,8 +16,8 @@ class Tooltip extends React.Component {
     } else {
       // console.log(this.props.name, "this.props.classname")
       let tooltip_right, tooltip_left, tooltip_top, titleHeight, filtersHeight, sourceHeight;
-      titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 0;
-      filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 0;
+      titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 66;
+      filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 40;
       sourceHeight = document.getElementById('protograph_source_div')? document.getElementById('protograph_source_div').offsetHeight : 0;
       if (this.props.mode === 'laptop'){
         tooltip_right = 384;

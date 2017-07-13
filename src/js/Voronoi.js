@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {voronoi as d3Voronoi} from 'd3-voronoi';
 import Tooltip from '../js/Tooltip';
+import Util from '../js/Utils';
 
 class Voronoi extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Voronoi extends React.Component {
   }
 
   componentDidUpdate() {
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode} name={this.state.name}/>, document.getElementById('renderTooltip'))
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))
   }
 
   handleMouseOver(e, card, voronoi, name) {
@@ -29,7 +30,7 @@ class Voronoi extends React.Component {
     this.setState({
       tooltipData: nearestCardData
     })
-    this.highlightCircle(name)
+    Util.highlightCircle(name)
   }
 
   handleMouseOut(e) {
@@ -55,21 +56,6 @@ class Voronoi extends React.Component {
     this.setState({
       tooltipData: card
     })
-  }
-
-  highlightCircle(name) {
-    let getCircles = document.getElementsByClassName(`circle-${name}`),
-      allCircles = document.getElementsByClassName('map-circles');
-
-    // remove highlight of previous circle
-    for (let j=0; j<allCircles.length; j++){
-      allCircles[j].style.stroke = 'none';
-    }
-
-    for (let i=0; i<getCircles.length; i++){
-      getCircles[i].style.stroke = '#D80202';
-      getCircles[i].style.strokeWidth = '3.5px';    
-    }
   }
 
   render() {
@@ -131,5 +117,3 @@ Array.prototype.clean = function(deleteValue) {
 };
 
 export default Voronoi;
-
-// 

@@ -8,6 +8,20 @@ function setColorScale(value, colorDomain, colorRange) {
   return colorScale(value);
 }
 
+function highlightCircle(name) {
+  let getCircles = document.getElementsByClassName(`circle-${name}`),
+    allCircles = document.getElementsByClassName('map-circles');
+  // remove highlight of previous circle
+  for (let j=0; j<allCircles.length; j++){
+    allCircles[j].style.stroke = 'none';
+  }
+
+  for (let i=0; i<getCircles.length; i++){
+    getCircles[i].style.stroke = '#D80202';
+    getCircles[i].style.strokeWidth = '3.5px';    
+  }
+}
+
 function groupBy(data, column) {
   let grouped_data = {};
   switch(typeof column) {
@@ -36,5 +50,6 @@ function groupBy(data, column) {
 
 module.exports = {
   groupBy : groupBy,
-  setColorScale : setColorScale
+  setColorScale : setColorScale,
+  highlightCircle: highlightCircle
 }
