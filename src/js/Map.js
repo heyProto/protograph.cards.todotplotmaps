@@ -5,7 +5,20 @@ import PlotCircles from '../js/PlotCircles';
 import Voronoi from '../js/Voronoi';
 
 class MapsCard extends React.Component {
-  render(){
+  constructor(props) {
+    super(props)
+    this.state = {
+      projection: undefined,
+      regions: [],
+      outlines: [],
+      country: undefined,
+      path: undefined,
+      offsetWidth: undefined,
+      actualHeight: undefined
+    }
+  }
+
+  componentWillMount() {
     let padding = this.props.mode === 'mobile' ? 20 : 0,
       offsetWidth = document.getElementById('main-div').offsetWidth - padding,
       actualHeight = this.props.chartOptions.height
@@ -19,7 +32,6 @@ class MapsCard extends React.Component {
       projection = geoMercator().center(center)
         .scale(scale)
         .translate([tx, actualHeight/2]),
-        // .translate([offsetWidth / 2, actualHeight/ 2]),
       path = geoPath()
         .projection(projection);
 
@@ -33,8 +45,6 @@ class MapsCard extends React.Component {
       .scale(scale)
       .translate(offset);
     path = path.projection(projection);
-
-    // console.log(country, "country")
 
     let regions = country.features.map((d,i) => {
       return(
@@ -50,10 +60,22 @@ class MapsCard extends React.Component {
       )
     })
 
-    let styles ={
+    this.setState({
+      projection: projection,
+      regions: regions,
+      outlines: outlines,
+      country: country,
+      path: path,
+      offsetWidth: offsetWidth,
+      actualHeight: actualHeight
+    })
+  }
+
+  render(){
+    let styles = {
       strokeWidth: 0.675
     }
-
+    const {projection, regions, outlines, country, path, offsetWidth, actualHeight} = this.state
     return(
       <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${actualHeight}`} width={offsetWidth} height={actualHeight}>
         <g id="regions-grp" className="regions">{regions}</g>

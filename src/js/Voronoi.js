@@ -13,25 +13,13 @@ class Voronoi extends React.Component {
   }
 
   componentDidUpdate() {
-    // console.log("componentDidUpdate in voronoi", this.state.tooltipData)
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode} handleCircleClicked={this.props.handleCircleClicked}/>, document.getElementById('renderTooltip'))   
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode} handleCircleClicked={this.props.handleCircleClicked}/>, document.getElementById('renderTooltip'))  
   }
 
   handleMouseOver(e, card, voronoi, name) {
-    console.log("mouseover")
-    if (!this.props.circleClicked) {
-      let nearestCardData;
-      if (this.props.mode === 'laptop'){
-        // const radius = this.props.width/50,
-        //   site = voronoi.find(e.pageX, e.pageY, 10);
-        // nearestCardData = site && site.data;
-        // console.log(nearestCardData,site, e.pageX, e.pageY, "nearestCardData")
-        nearestCardData = card;
-      } else {
-        nearestCardData = card;
-      }   
+    if (!this.props.circleClicked) { 
       this.setState({
-        tooltipData: nearestCardData
+        tooltipData: card
       })
       Util.highlightCircle(name)
     }
