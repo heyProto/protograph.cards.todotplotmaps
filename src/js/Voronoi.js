@@ -8,12 +8,14 @@ class Voronoi extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      tooltipData: {}
+      tooltipData: this.props.onLoadTooltipData
     }
+    console.log("constructor")
   }
 
   componentDidUpdate() {
-    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))
+    // console.log("componentDidUpdate in voronoi", this.state.tooltipData)
+    ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode}/>, document.getElementById('renderTooltip'))   
   }
 
   handleMouseOver(e, card, voronoi, name) {

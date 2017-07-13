@@ -30,6 +30,8 @@ class App extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log("componentDidUpdate in App")
+    this.state.onLoadTooltipData = this.state.filteredData[0]
     let name = `${this.state.filteredData[0].state}-${this.state.filteredData[0].area}`
     Util.highlightCircle(name)
   }
@@ -41,7 +43,7 @@ class App extends React.Component {
   generateFilters() {
     let groupData = Util.groupBy(this.state.dataJSON, this.props.chartOptions.filterBy)
     this.state.groupedData = groupData 
-    console.log(groupData, "groupData")
+    // console.log(groupData, "groupData")
     return groupData;
   }
 
@@ -102,6 +104,7 @@ class App extends React.Component {
       // let styles = {
       //   width: '100%'
       // }
+      
       const {chartTitle, colorCategory, filterBy} = this.props.chartOptions;
       return(
         <div id="main-div" style={styles}>
@@ -112,7 +115,7 @@ class App extends React.Component {
             <h1 id='protograph_map_title'>{chartTitle}</h1>
             {filterBy !== undefined ? <div id="protograph_filters" className="tabs"> {tabs} </div> : ''}
             {colorCategory !== undefined ? <Legends data={this.state.filteredData} chartOptions={this.props.chartOptions} /> : ''}
-            <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
+            <Maps dataJSON={this.state.filteredData} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} onLoadTooltipData={this.state.onLoadTooltipData}/>
           </div>
        </div>
         

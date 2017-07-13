@@ -14,7 +14,6 @@ class Tooltip extends React.Component {
     if (this.props.cardData === null){
       return(<div></div>)
     } else {
-      // console.log(this.props.name, "this.props.classname")
       let tooltip_right, tooltip_left, tooltip_top, titleHeight, filtersHeight, sourceHeight;
       titleHeight = document.getElementById('protograph_map_title') ? document.getElementById('protograph_map_title').offsetHeight : 66;
       filtersHeight = document.getElementById('protograph_filters') ? document.getElementById('protograph_filters').offsetHeight : 40;
