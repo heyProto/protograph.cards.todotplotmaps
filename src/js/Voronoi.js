@@ -13,7 +13,8 @@ class Voronoi extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.circleHover) {
+    // console.log(this.props.circleHover, "this.props.circleHover")
+    if (this.props.circleHover || this.props.circleClicked) {
       ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode} handleCircleClicked={this.props.handleCircleClicked}/>, document.getElementById('renderTooltip')) 
     }   
   }

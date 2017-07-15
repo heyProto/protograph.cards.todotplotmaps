@@ -10,6 +10,9 @@
     <script src="https://d2m6lzru8erw1k.cloudfront.net/lib/protoGraph.min.js"></script>
     <script type="text/javascript">
       var proto_embed_test = new ProtoEmbed.initFrame('proto_dotplotmap', 'index.html', 'laptop')
+      console.log(document.getElementsByTagName('iframe'))
+      let tag = document.getElementsByTagName('iframe')[0]
+      tag.setAttribute('sandbox', 'allow-popups allow-scripts allow-same-origin')
     </script>
   </body>
 </html>

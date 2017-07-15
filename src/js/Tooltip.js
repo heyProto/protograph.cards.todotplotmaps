@@ -76,7 +76,7 @@ class Tooltip extends React.Component {
           </div>
           <hr/>
           <div className="t-header">further reading</div>
-          <div className="t-p t-padup"><a id="t-further-reading" href="{this.props.cardData.url}">{this.props.cardData.url}</a></div>
+          <div className="t-p t-padup"><a id="t-further-reading" href={this.props.cardData.url} target="_blank">{this.props.cardData.url}</a></div>
         </div>
       )
     }
